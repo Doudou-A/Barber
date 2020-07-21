@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Workshop BarberShop
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css"/>
+		<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script language="javascript" src="/js/style.js"></script>
+
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+		{% block body %}{% endblock %}
+		
+		{% block javascripts %}{% endblock %}
+	</body>
 </html>
