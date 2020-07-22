@@ -1,0 +1,51 @@
+body {
+  height: 100vh;
+}
+
+.wrapper {
+  background: url("img/barber_background.png");
+  color: #eee;
+  width: 100%;
+  height: 50%;
+  background-repeat: repeat-x;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  animation: animation 100s linear 1s infinite;
+}
+
+@keyframes animation {
+  100% {
+    background-position: -3000px 0px;
+  }
+}
+
+.border-wrapper{
+    border: #2a2d2a solid 1px;
+}
+
+.bg-barber{
+    background: url("img/bg_barber_border.png");
+}
+
+.border-bottom-barber{
+    border-bottom: 1px solid #2a2d2a !important
+}
+
+.b-gris{
+    background-color: #2a2d2a;
+}
+
+@font-face {
+    font-family: "brush_script_mt";
+    src: url('/font/brush_script_mt_kursiv.ttf') format('truetype');
+    font-weight: normal;
+    font-style: lighter;
+  }
+  
+  .font-BSM{
+    font-family: "brush_script_mt";
+    letter-spacing: 0.1rem;
+  }
