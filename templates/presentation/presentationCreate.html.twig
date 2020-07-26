@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CoiffureController!
+{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+	{{ form_row(form.file, {'label' : "Nom de la Figure"}) }}
+	{{ form_row(form.type, {'label' : "Choisir une catégorie"}) }}
+	{{ form_row(form.format, {'label' : "Contenu de la Figure"}) }}
+	{% if editMode %}
+		<div class="row justify-content-center">
+			<button type="submit" class="btn btn-success my-3 font-MF">Modifier</button>
+		</div>
+		<div class="col-12 text-center">
+			<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" width="50%" alt="">
+		</div>
+	{% else %}
+		<div class="row justify-content-center">
+			<button type="submit" class="btn btn-success my-3 font-MF">Ajouter</button>
+		</div>
+	{% endif %}
+	{{ form_end(form)}}
+{% endblock %}

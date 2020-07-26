@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SalonController!
+{% endblock %}
+
+{% block body %}
+	<div class="d-flex">
+		{% for presentation in aPresentation %}
+			{% if presentation.format == true %}
+				{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('presentation_edit', {'id': presentation.id}) }}">&#128394;</a>
+					<a href="{{ path('presentation_delete', {'id': presentation.id}) }}" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
+				{% endif %}
+				<video id="example_video_1" class="video-js vjs-default-skin col-lg-2" controls preload="auto" {# width="640" height="264" #} poster="http://video-js.zencoder.com/oceans-clip.png">
+					<source src="{{ asset('uploads/presentation/' ~ presentation.file) }}" type='video/mp4'>
+					<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that
+						<a href="http://videojs.com/html5-video-support/" target="_blank">
+							supports HTML5 video</a>
+					</p>
+				</video>
+			{% else %}
+				{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('presentation_edit', {'id': presentation.id}) }}">&#128394;</a>
+					<a href="{{ path('presentation_edit', {'id': presentation.id}) }}" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
+				{% endif %}
+				<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" width="15%" alt="salon-de-coiffure">
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endblock %}
