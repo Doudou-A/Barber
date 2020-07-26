@@ -1,13 +1,3 @@
-
-//Onclick sur notif iphone
-$(function () {
-    $('#phoneNumber').click(function () {
-        var Number = '#phoneNumber';
-        $(Number).html('<div class="text-center text-barber-blue font-weight-bold" style="font-size:16px">06 22 39 13 20</div>');
-
-    });
-});
-
 //Date dans le téléphone
 /* function getDateTime() {
     var d = new Date();

@@ -10576,8 +10576,9 @@ header.wrapper {
 }
 
 .iphone-notif:hover{
-  background-color: #38b6ff;
+  background-color: #3a71b1;
   cursor: pointer;
+  color: white;
 }
 
 .cursor:hover{
@@ -10589,7 +10590,7 @@ header.wrapper {
 }
 
 .bg-presentation{
-  background: linear-gradient(#38b6ff, white);
+  background: linear-gradient(#3a71b1, white);
 }
 
 .bg-team{
@@ -10639,4 +10640,8 @@ header.wrapper {
 
 .bg-cross {
   background-color: #f8f9fa70 !important;
+}
+
+.hover-white:hover{
+  color: white;
 }
