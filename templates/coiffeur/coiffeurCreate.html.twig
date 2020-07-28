@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CoiffureController!
+{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+    <div class="text-danger">Les photos doivent être carrées, largeur = longueur (vous pouvez rogner la photo à l'aide de votre téléphone)</div>
+	{{ form_row(form.username, {'label' : "Nom du coiffeur"}) }}
+	{{ form_row(form.file, {'label' : "Photo du coiffeur"}) }}
+	{{ form_row(form.snap, {'label' : "Photo du snap"}) }}
+	{{ form_row(form.facebook, {'label' : "Lien du Facebook"}) }}
+	{{ form_row(form.insta, {'label' : "Lien du Instagram"}) }}
+	{% if editMode %}
+		<div class="row justify-content-center">
+			<button type="submit" class="btn btn-success my-3 font-MF">Modifier</button>
+		</div>
+		<div class="col-12 text-center d-flex justify-content-center">
+			<img src="{{ asset('uploads/coiffeurs/' ~ coiffeur.file) }}" width="15%" alt="" class=" m-3">
+			<img src="{{ asset('uploads/coiffeurs/' ~ coiffeur.snap) }}" width="15%" alt="" class=" m-3">
+		</div>
+	{% else %}
+		<div class="row justify-content-center">
+			<button type="submit" class="btn btn-success my-3 font-MF">Ajouter</button>
+		</div>
+	{% endif %}
+	{{ form_end(form)}}
+{% endblock %}

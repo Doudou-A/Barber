@@ -13,12 +13,11 @@ class CoiffureController extends AbstractController
      */
     public function coiffureShow(PresentationRepository $repo)
     {
-        $user = $this->getUser();
         $aPresentation = $repo->findByType(false);
 
         return $this->render('presentation/PresentationShow.html.twig', [
             'aPresentation' => $aPresentation,
-            'user' => $user,
+            'page' => 'coiffures',
         ]);
     }
 }

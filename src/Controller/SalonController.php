@@ -13,14 +13,11 @@ class SalonController extends AbstractController
      */
     public function salonShow(PresentationRepository $repo)
     {
-        $user = $this->getUser();
-        $role = $user->getRoles();
         $aPresentation = $repo->findByType(true);
 
         return $this->render('presentation/presentationShow.html.twig', [
             'aPresentation' => $aPresentation,
-            'user' => $user,
-            'role' => $role,
+            'page' => 'salon',
         ]);
     }
 }

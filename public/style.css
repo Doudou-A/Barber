@@ -10589,6 +10589,18 @@ header.wrapper {
   color: #2a2d2a;
 }
 
+.bg-grey{
+  background-color: #2a2d2a;
+  color: white;
+}
+
+.bg-grey:hover{
+  background-color: white;
+  color: #2a2d2a;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .bg-presentation{
   background: linear-gradient(#3a71b1, white);
 }
@@ -10645,3 +10657,8 @@ header.wrapper {
 .hover-white:hover{
   color: white;
 }
+
+.horizontal-scrollable{ 
+  overflow-x: auto; 
+  white-space: nowrap; 
+} 

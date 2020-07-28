@@ -3,20 +3,20 @@
 namespace App\Controller;
 
 use App\Entity\Presentation;
+use App\Service\PresentationManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PresentationDeleteController extends AbstractController
 {
     /**
-     * @Route("/presentation/{id}/delete", name="presentation_delete")
+     * @Route("/presentation/{id}/delete/{page}", name="presentation_delete")
      */
-    public function presentationDelete(Presentation $presentation, PresentationManager $presentationManager)
+    public function presentationDelete(Presentation $presentation, $page, PresentationManager $presentationManager)
     {
-        $presentationManager->delete();
+        $presentationManager->delete($presentation);
         
-        return $this->render('presentation_delete/index.html.twig', [
-            'controller_name' => 'PresentationDeleteController',
-        ]);
+        if($page == 'salon') return $this->redirectToRoute('salon');
+        else return $this->redirectToRoute('coiffures');
     }
 }
