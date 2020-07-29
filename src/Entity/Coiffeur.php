@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CoiffeurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Coiffeur
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $insta;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="Coiffeur")
+     */
+    private $reservations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,37 @@ class Coiffeur
     public function setInsta(?string $insta): self
     {
         $this->insta = $insta;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setCoiffeur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->contains($reservation)) {
+            $this->reservations->removeElement($reservation);
+            // set the owning side to null (unless already changed)
+            if ($reservation->getCoiffeur() === $this) {
+                $reservation->setCoiffeur(null);
+            }
+        }
 
         return $this;
     }

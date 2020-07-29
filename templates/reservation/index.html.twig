@@ -5,22 +5,14 @@
 
 {% block body %}
 	<div class="col-lg-6 border d-flex horizontal-scrollable">
-		<div class="col-3 d-flex flex-column h-100 text-center">
-			<div>
-				{{today}}
-			</div>
-			<div>
-				{{todayTime}}
-			</div>
-		</div>
-		{% for date in aDate %}
+		{% for dates in aDate %}
 			<div class="col-3 d-flex flex-column h-100 text-center">
 				<div>
-					{{date}}
+					{{dates.dateFr}}
 				</div>
-				{% for hour in aHour %}
+				{% for hour in dates.hour %}
 					<div>
-						{{hour}}
+						{{dates.dateData}} {{hour}}
 					</div>
 				{% endfor %}
 			</div>

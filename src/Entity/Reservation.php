@@ -22,6 +22,16 @@ class Reservation
      */
     private $dateRDV;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Coiffeur::class, inversedBy="reservations")
+     */
+    private $Coiffeur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reservations")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +45,30 @@ class Reservation
     public function setDateRDV(\DateTimeInterface $dateRDV): self
     {
         $this->dateRDV = $dateRDV;
+
+        return $this;
+    }
+
+    public function getCoiffeur(): ?Coiffeur
+    {
+        return $this->Coiffeur;
+    }
+
+    public function setCoiffeur(?Coiffeur $Coiffeur): self
+    {
+        $this->Coiffeur = $Coiffeur;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
