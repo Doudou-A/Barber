@@ -14,7 +14,7 @@ setInterval(function () {
     ) + d.getMinutes();
 
     document.getElementById("dateTime").innerHTML = hours;
-}, 1000);
+}, 5000);
 /* getDateTime(); */
 
 //Animation ciseaux
@@ -76,4 +76,26 @@ $(function () {
             snapImage.removeClass('d-block').addClass('d-none');
         }, 1500);
     })
+});
+
+//Formulaire Réservation
+$(function () {
+    $(".formReservation").submit(function (event) {
+        event.preventDefault(); // Empêcher le rechargement de la page.
+        if (confirm("Confirmer cet horaire pour votre rendez-vous")) {
+            var post_url = $(this).attr("action"); // get form action url
+            var request_method = $(this).attr("method"); // get form GET/POST method
+            var form_data = $(this).serialize(); // Encode form elements for submission
+
+            $.ajax({ url: post_url, type: request_method, data: form_data, //
+                success: function (data) {
+                    console.log(data);
+                /* $(this).trigger('click'); */
+            }
+        });
+        } else {
+            // Code à éxécuter si l'utilisateur clique sur "Annuler" 
+        }
+
+    });
 });
