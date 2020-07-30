@@ -60,7 +60,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-top: 102px !important;
+  font-family:/*  "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,  */"Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -2021,9 +2022,8 @@ pre code {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #ffeeb5;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(254, 209, 54, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(85, 85, 85, 0.25);
 }
 .form-control::-webkit-input-placeholder {
   color: #6c757d;
@@ -10096,7 +10096,8 @@ img::-moz-selection {
   letter-spacing: 0.0625em;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #38b6ff;
+  color: red;
+  background-color: white;
 }
 
 @media (min-width: 992px) {
@@ -10609,6 +10610,10 @@ header.wrapper {
   background: linear-gradient(white, #ff1716);
 }
 
+.bg-team-user{
+  background: linear-gradient(#ff1716, white);
+}
+
 @keyframes apparition {
   from {
     width: 1%;
@@ -10662,3 +10667,33 @@ header.wrapper {
   overflow-x: auto; 
   white-space: nowrap; 
 } 
+
+.bg-blue{
+  background-color: #3a71b1;
+}
+
+.btn-blue{
+  background-color: #3a71b1;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-blue:hover{
+  background-color: white;
+  color: #3a71b1 !important;
+  font-weight: bold;
+  border: #3a71b1 solid;
+}
+
+.btn-blue-reverse{
+  background-color: white;
+  color: #3a71b1 !important;
+  font-weight: bold;
+  border: #3a71b1 solid;
+}
+
+.btn-blue-reverse:hover{
+  background-color: #3a71b1;
+  color: white !important;
+  font-weight: bold;
+}

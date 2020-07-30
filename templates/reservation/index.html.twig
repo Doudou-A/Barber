@@ -4,26 +4,14 @@
 {% endblock %}
 
 {% block body %}
-	<div class="col-lg-6 border d-flex horizontal-scrollable">
-		{% for dates in aDate %}
-			<div class="col-3 d-flex flex-column h-100 text-center">
-				<div>
-					{{dates.dateFr}}
+	<div class="col-lg-4 m-0 bg-team-user w-100 vh-100">
+		<div class="team-member">
+			{% for coiffeur in aCoiffeur %}
+				<div class=" p-2 rounded-circle text-center">
+					<img id="coiffeurImage_{{coiffeur.id}}" class="mx-auto rounded-circle d-block choseCoiffeur" src="{{ asset('uploads/coiffeurs/' ~ coiffeur.file) }}" alt="" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000"/>
 				</div>
-				{% for hour in dates.hour %}
-					<form action="/reservation/create" enctype="multipart/form-data" class="formReservation" method="POST">
-						<div class="row col-12 p-0 m-0">
-							<div style="display: none;">
-								<input class="col-lg-12 p-2 animated fadeInLeft border" value='3' type="number" name="coiffeur" required="required"/>
-							</div>
-							<div style="display: none;">
-								<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{dates.dateData}} {{hour}}" type="text" name="date"/>
-							</div>
-							<input type="submit" name="valide" value="{{hour}}" class="col-6 offset-3"/>
-						</div>
-					</form>
-				{% endfor %}
-			</div>
-		{% endfor %}
+				<h4 class="font-SHR text-white" class="my-3 text-grey font-SHR" data-aos="fade-down" data-aos-duration="1500">{{coiffeur.username}}</h4>
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}

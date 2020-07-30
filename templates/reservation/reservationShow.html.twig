@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReservationController!
+{% endblock %}
+
+{% block body %}
+	<div class="col-lg-6 border d-flex horizontal-scrollable">
+		{% for dates in aDate %}
+			<div class="col-3 d-flex flex-column h-100 text-center">
+				<div>
+					{{dates.dateFr}}
+				</div>
+				{% for hour in dates.hour %}
+					<form action="/reservation/create" enctype="multipart/form-data" class="formReservation" method="POST">
+						<div class="row col-12 p-0 m-0">
+							<div style="display: none;">
+								<input class="col-lg-12 p-2 animated fadeInLeft border" value='3' type="number" name="coiffeur" required="required"/>
+							</div>
+							<div style="display: none;">
+								<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{dates.dateData}} {{hour}}" type="text" name="date"/>
+							</div>
+							<input type="submit" name="valide" value="{{hour}}" class="col-6 offset-3"/>
+						</div>
+					</form>
+				{% endfor %}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

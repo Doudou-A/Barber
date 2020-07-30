@@ -2,16 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use App\Repository\UserRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Un compte existe déjà avec cette adresse mail")
  */
 class User implements UserInterface
 {
@@ -37,6 +39,11 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+    
+    /**
+     * @Assert\EqualTo(propertyPath="password", message="Vos mots de passe sont différents")
+     */
+    private $passwordConfirm;
 
     /**
      * @ORM\Column(type="boolean")

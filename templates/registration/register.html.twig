@@ -1,21 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+	{% if app.user %}
+		<div class="pt-5">
+			<div class="col-lg-6 m-auto border shadow">
+				Vous êtes déjà connecté, veuillez cliquez sur ce lien pour vous déconnecter
+				{{ app.user.username }},
+				<a href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		</div>
+	{% else %}
+		<div class="pt-5" data-aos="fade-down" data-aos-duration="1000" >
+			<div class="col-lg-6 m-auto p-3 border shadow">
+				<div class="d-flex justify-content-center w-100">
+					<img src="img/logo.png" alt="workshop-barbershop" class="col-3 mx-auto p-2">
+				</div>
+				<h1 class="h3 text-grey font-weight-bold">Créer un compte</h1>
+				{{ form_start(registrationForm, {'attr': {'class': 'd-flex flex-column'}}
+				) }}
+				{{ form_row(registrationForm.email , {'attr': {'class': 'form-control mt-2', 'placeholder' : 'Email'}, 'label' : false}
+				) }}
+				{{ form_row(registrationForm.password, {'attr': {'class': 'form-control mt-2 md-1', 'placeholder' : 'Mot de passe'}, 'label' : false}
+				) }}
+				{% if error == true %}
+				<div class="text-danger">* Les mots de passe sont différents</div>
+				{% endif %}
+				{{ form_row(registrationForm.passwordConfirm, {'attr': {'class': 'form-control mt-2 md-1', 'placeholder' : 'Mot de passe'}, 'label' : false}
+				) }}
+				{{ form_row(registrationForm.agreeTerms, {'label': 'Accepter les CGU'}
+				) }}
 
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+				<button class="btn btn-blue col-lg-6 mt-3 mx-auto" type="submit">
+					Créer mon compte
+				</button>
+				{{ form_end(registrationForm) }}
+				<div class="border-top mt-3 d-flex justify-content-center">
+					<a class="btn btn-blue-reverse col-lg-6 mt-3" href="{{ path('app_login')}}">
+						Déjà client? Se connecter
+					</a>
+				</div>
+			{% endif %}
+		{% endblock %}

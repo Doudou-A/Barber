@@ -82,20 +82,30 @@ $(function () {
 $(function () {
     $(".formReservation").submit(function (event) {
         event.preventDefault(); // Empêcher le rechargement de la page.
-        if (confirm("Confirmer cet horaire pour votre rendez-vous")) {
+        if (confirm("Confirmer ce rendez-vous ?")) {
             var post_url = $(this).attr("action"); // get form action url
             var request_method = $(this).attr("method"); // get form GET/POST method
             var form_data = $(this).serialize(); // Encode form elements for submission
 
-            $.ajax({ url: post_url, type: request_method, data: form_data, //
+            $.ajax({
+                url: post_url, type: request_method, data: form_data, //
                 success: function (data) {
                     console.log(data);
-                /* $(this).trigger('click'); */
-            }
-        });
+                    /* $(this).trigger('click'); */
+                }
+            });
         } else {
             // Code à éxécuter si l'utilisateur clique sur "Annuler" 
         }
 
+    });
+});
+
+//Hover Coiffeur
+$(function () {
+    $(".choseCoiffeur").hover(function () {
+        $(this).addClass("p-4 border-0 btn bg-ligth");
+    }, function () {
+        $(this).removeClass("p-4 border-0 btn bg-ligth");
     });
 });
