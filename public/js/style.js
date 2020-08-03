@@ -103,9 +103,14 @@ $(function () {
 
 //Hover Coiffeur
 $(function () {
-    $(".choseCoiffeur").hover(function () {
+    $(".hoverWB").hover(function () {
         $(this).addClass("p-4 border-0 btn bg-ligth");
     }, function () {
         $(this).removeClass("p-4 border-0 btn bg-ligth");
     });
 });
+
+//Flash disparition
+setTimeout(function () {
+    $('.flash').addClass('d-none');
+}, 5000);

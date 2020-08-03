@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié
+{% endblock %}
+
+{% block body %}
+	<div class="pt-5" data-aos="fade-down" data-aos-duration="1000">
+		<div class="col-lg-6 m-auto p-3 border shadow">
+			<div class="d-flex justify-content-center w-100">
+				<img src="{{ asset('img/logo.png') }}" alt="workshop-barbershop" class="col-3 mx-auto p-2">
+			</div>
+			<h1 class="h3 text-grey font-weight-bold">Mot de passe oublié</h1>
+			{{ form_start(formEmail, {'attr': {'class': 'd-flex flex-column'}}
+			) }}
+			{{ form_row(formEmail.email , {'attr': {'class': 'form-control mt-2', 'placeholder' : 'Email'}, 'label' : false}) }}
+			<button type="submit" class="btn btn-blue col-lg-6 mt-3 mx-auto">
+				Valider
+			</button>
+			{{ form_end(formEmail)}}
+		</div>
+	</div>
+{% endblock %}

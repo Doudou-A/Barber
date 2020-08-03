@@ -55,7 +55,7 @@
 						</li>
 						<li class="nav-item d-flex flex-column">
 							<a class="nav-link js-scroll-trigger" href="/login">
-								<img src="img/icons8-utilisateur-96.png" height="38px" weight="auto"/>
+								<img src="{{ asset('img/icons8-utilisateur-96.png') }}" height="38px" weight="auto"/>
 								Compte
 							</a>
 						</li>
@@ -66,6 +66,6 @@
 	</head>
 </html></nav></head><body id="page-top" class="vh-100"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>
 AOS.init();</script>{% for message in app.flashes('success') %}
-<div class="alert alert-success">
+<div class="alert alert-success flash">
 	{{ message }}
 </div>{% endfor %}{% block body %}{% endblock %}{% block javascripts %}{% endblock %}</body></html>

@@ -2,18 +2,15 @@
 
 namespace App\Entity;
 
-
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="Un compte existe déjà avec cette adresse mail")
+ * @UniqueEntity("email", message="Un compte possède déjà cet adresse email")
  */
 class User implements UserInterface
 {
@@ -23,7 +20,7 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-
+    
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
@@ -37,28 +34,24 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min="6", minMessage="Votre mot de passe doit contenir 6 caractères")
      */
     private $password;
     
     /**
      * @Assert\EqualTo(propertyPath="password", message="Vos mots de passe sont différents")
      */
-    private $passwordConfirm;
+    public $confirm_password;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="datetime")
      */
-    private $isVerified = false;
+    private $dateCreated;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="user")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $reservations;
-
-    public function __construct()
-    {
-        $this->reservations = new ArrayCollection();
-    }
+    private $token;
 
     public function getId(): ?int
     {
@@ -138,46 +131,28 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function isVerified(): bool
+    public function getDateCreated(): ?\DateTimeInterface
     {
-        return $this->isVerified;
+        return $this->dateCreated;
     }
 
-    public function setIsVerified(bool $isVerified): self
+    public function setDateCreated(\DateTimeInterface $dateCreated): self
     {
-        $this->isVerified = $isVerified;
+        $this->dateCreated = $dateCreated;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Reservation[]
-     */
-    public function getReservations(): Collection
+    public function getToken(): ?string
     {
-        return $this->reservations;
+        return $this->token;
     }
 
-    public function addReservation(Reservation $reservation): self
+    public function setToken(?string $token): self
     {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations[] = $reservation;
-            $reservation->setUser($this);
-        }
+        $this->token = $token;
 
         return $this;
     }
 
-    public function removeReservation(Reservation $reservation): self
-    {
-        if ($this->reservations->contains($reservation)) {
-            $this->reservations->removeElement($reservation);
-            // set the owning side to null (unless already changed)
-            if ($reservation->getUser() === $this) {
-                $reservation->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 }

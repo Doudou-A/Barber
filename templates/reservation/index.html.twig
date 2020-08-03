@@ -8,7 +8,7 @@
 		<div class="team-member">
 			{% for coiffeur in aCoiffeur %}
 				<div class=" p-2 rounded-circle text-center">
-					<img id="coiffeurImage_{{coiffeur.id}}" class="mx-auto rounded-circle d-block choseCoiffeur" src="{{ asset('uploads/coiffeurs/' ~ coiffeur.file) }}" alt="" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000"/>
+					<img id="coiffeurImage_{{coiffeur.id}}" class="mx-auto rounded-circle d-block hoverWB" src="{{ asset('uploads/coiffeurs/' ~ coiffeur.file) }}" alt="" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000"/>
 				</div>
 				<h4 class="font-SHR text-white" class="my-3 text-grey font-SHR" data-aos="fade-down" data-aos-duration="1500">{{coiffeur.username}}</h4>
 			{% endfor %}
