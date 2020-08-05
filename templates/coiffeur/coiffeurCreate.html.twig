@@ -4,25 +4,34 @@
 {% endblock %}
 
 {% block body %}
-	{{ form_start(form) }}
-    <div class="text-danger">Les photos doivent être carrées, largeur = longueur (vous pouvez rogner la photo à l'aide de votre téléphone)</div>
-	{{ form_row(form.username, {'label' : "Nom du coiffeur"}) }}
-	{{ form_row(form.file, {'label' : "Photo du coiffeur"}) }}
-	{{ form_row(form.snap, {'label' : "Photo du snap"}) }}
-	{{ form_row(form.facebook, {'label' : "Lien du Facebook"}) }}
-	{{ form_row(form.insta, {'label' : "Lien du Instagram"}) }}
-	{% if editMode %}
-		<div class="row justify-content-center">
-			<button type="submit" class="btn btn-success my-3 font-MF">Modifier</button>
+	<div class="pt-5" data-aos="fade-down" data-aos-duration="1000">
+		<div class="col-lg-6 m-auto p-3 border shadow">
+			<h1 class="h3 text-grey font-weight-bold text-center col-12 mb-4">Ajouter un Coiffeur</h1>
+			{{ form_start(form, {'attr': {'class': 'd-flex flex-column'}}) }}
+			{{ form_row(form.username, {'label' : "Nom du coiffeur"}) }}
+				<div class="text-danger mt-2">Les photos doivent être carrées, largeur = longueur (vous pouvez rogner la photo à l'aide de votre téléphone)</div>
+			{{ form_row(form.file, {'attr': {'class': 'form-control mb-4 border-0'}, 'label' : 'Photo du coiffeur'}) }}
+			{{ form_row(form.snap, {'attr': {'class': 'form-control mb-4 border-0'}, 'label' : 'Photo du snap'}) }}
+			{{ form_row(form.facebook, {'attr': {'class': 'form-control mb-4'}, 'label' : 'Lien du Facebook'}) }}
+			{{ form_row(form.insta, {'attr': {'class': 'form-control mb-4'}, 'label' : 'Lien du Instagram'}) }}
+			{% if editMode %}
+				<div class="row justify-content-center">
+					<button class="btn btn-blue col-lg-6 mt-3 mx-auto" type="submit">
+						Modifier
+					</button>
+				</div>
+				<div class="border-top mt-3 d-flex justify-content-center">
+					<img src="{{ asset('uploads/coiffeurs/' ~ coiffeur.file) }}" width="15%" alt="" class=" m-3">
+					<img src="{{ asset('uploads/coiffeurs/' ~ coiffeur.snap) }}" width="15%" alt="" class=" m-3">
+				</div>
+			{% else %}
+				<div class="row justify-content-center">
+					<button class="btn btn-blue col-lg-6 mt-3 mx-auto" type="submit">
+						Ajouter
+					</button>
+				</div>
+			{% endif %}
 		</div>
-		<div class="col-12 text-center d-flex justify-content-center">
-			<img src="{{ asset('uploads/coiffeurs/' ~ coiffeur.file) }}" width="15%" alt="" class=" m-3">
-			<img src="{{ asset('uploads/coiffeurs/' ~ coiffeur.snap) }}" width="15%" alt="" class=" m-3">
-		</div>
-	{% else %}
-		<div class="row justify-content-center">
-			<button type="submit" class="btn btn-success my-3 font-MF">Ajouter</button>
-		</div>
-	{% endif %}
+	</div>
 	{{ form_end(form)}}
 {% endblock %}

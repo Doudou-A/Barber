@@ -117,13 +117,13 @@ setTimeout(function () {
 
 //zoomPresentation
 $(function () {
-    $(".zoomPresentation").click(function () {
+    $('body').on('click', '.zoomPresentation', function () {
         $(this).removeClass('col-3').removeClass('hoverWB').removeClass('hiddenPresentation').removeClass('zoomPresentation').addClass('col-10').addClass('offset-1').addClass('position-absolute').addClass('zoomPresentationSnd');
         $('.hiddenPresentation').addClass('d-none').removeClass('d-flex');
     })
 });
 $(function () {
-    $(".zoomPresentationSnd").click(function () {
+    $('body').on('click', '.zoomPresentationSnd', function () {
         $(this).removeClass('col-10').removeClass('offset-1').removeClass('position-absolute').removeClass('zoomPresentationSnd').addClass('col-3').addClass('hoverWB').addClass('hiddenPresentation').addClass('zoomPresentation');
         $('.hiddenPresentation').removeClass('d-none').addClass('d-flex');
     })
