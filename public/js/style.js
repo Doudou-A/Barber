@@ -114,3 +114,17 @@ $(function () {
 setTimeout(function () {
     $('.flash').addClass('d-none');
 }, 5000);
+
+//zoomPresentation
+$(function () {
+    $(".zoomPresentation").click(function () {
+        $(this).removeClass('col-3').removeClass('hoverWB').removeClass('hiddenPresentation').removeClass('zoomPresentation').addClass('col-10').addClass('offset-1').addClass('position-absolute').addClass('zoomPresentationSnd');
+        $('.hiddenPresentation').addClass('d-none').removeClass('d-flex');
+    })
+});
+$(function () {
+    $(".zoomPresentationSnd").click(function () {
+        $(this).removeClass('col-10').removeClass('offset-1').removeClass('position-absolute').removeClass('zoomPresentationSnd').addClass('col-3').addClass('hoverWB').addClass('hiddenPresentation').addClass('zoomPresentation');
+        $('.hiddenPresentation').removeClass('d-none').addClass('d-flex');
+    })
+});

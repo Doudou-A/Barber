@@ -18,6 +18,7 @@ class SalonController extends AbstractController
         return $this->render('presentation/presentationShow.html.twig', [
             'aPresentation' => $aPresentation,
             'page' => 'salon',
+            'titre' => 'Le Salon',
         ]);
     }
 }

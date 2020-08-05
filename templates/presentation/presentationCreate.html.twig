@@ -4,21 +4,30 @@
 {% endblock %}
 
 {% block body %}
-	{{ form_start(form) }}
-	{{ form_row(form.file, {'label' : "Nom de la Figure"}) }}
-	{{ form_row(form.type, {'label' : "Choisir une catégorie"}) }}
-	{{ form_row(form.format, {'label' : "Contenu de la Figure"}) }}
-	{% if editMode %}
-		<div class="row justify-content-center">
-			<button type="submit" class="btn btn-success my-3 font-MF">Modifier</button>
+	<div class="pt-5" data-aos="fade-down" data-aos-duration="1000">
+		<div class="col-lg-6 m-auto p-3 border shadow">
+			<h1 class="h3 text-grey font-weight-bold text-center col-12 mb-4">Ajouter une présentation</h1>
+			{{ form_start(form, {'attr': {'class': 'd-flex flex-column'}}) }}
+			{{ form_row(form.file, {'attr': {'class': 'form-control mt-1 mb-3 border-0'},'label' : false}) }}
+			{{ form_row(form.type, {'attr': {'class': 'form-control mt-1 md-1 mb-3'}, 'label' : 'Catégorie du fichier'}) }}
+			{{ form_row(form.format, {'attr': {'class': 'form-control mt-1 md-1 mb-4'}, 'label' : 'Format du fichier'}) }}
+			{% if editMode %}
+				<div class="row justify-content-center">
+					<button class="btn btn-blue col-lg-6 mt-3 mx-auto" type="submit">
+						Modifier
+					</button>
+				</div>
+				<div class="border-top mt-3 d-flex justify-content-center">
+					<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" width="50%" alt="">
+				</div>
+			{% else %}
+				<div class="row justify-content-center">
+					<button class="btn btn-blue col-lg-6 mt-3 mx-auto" type="submit">
+						Ajouter
+					</button>
+				</div>
+			{% endif %}
+			{{ form_end(form)}}
 		</div>
-		<div class="col-12 text-center">
-			<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" width="50%" alt="">
-		</div>
-	{% else %}
-		<div class="row justify-content-center">
-			<button type="submit" class="btn btn-success my-3 font-MF">Ajouter</button>
-		</div>
-	{% endif %}
-	{{ form_end(form)}}
+	</div>
 {% endblock %}

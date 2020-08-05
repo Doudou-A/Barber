@@ -18,6 +18,7 @@ class CoiffureController extends AbstractController
         return $this->render('presentation/PresentationShow.html.twig', [
             'aPresentation' => $aPresentation,
             'page' => 'coiffures',
+            'titre' => 'Les Coiffures',
         ]);
     }
 }
