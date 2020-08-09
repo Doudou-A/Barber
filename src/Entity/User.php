@@ -20,7 +20,7 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-    
+
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
@@ -37,7 +37,7 @@ class User implements UserInterface
      * @Assert\Length(min="6", minMessage="Votre mot de passe doit contenir 6 caractères")
      */
     private $password;
-    
+
     /**
      * @Assert\EqualTo(propertyPath="password", message="Vos mots de passe sont différents")
      */
@@ -223,4 +223,13 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * toString
+     *
+     * @return string
+     */
+    public function getToString()
+    {
+        return $this->getName() . ' ' . $this->getFirstName();
+    }
 }

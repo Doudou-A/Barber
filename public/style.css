@@ -9,7 +9,7 @@
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ /* 
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -24,7 +24,6 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  /* --primary: #fed136; ADO */
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -39,7 +38,7 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
+} */
 
 *,
 *::before,
@@ -60,7 +59,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  margin-top: 102px !important;
+  margin-top: 118px !important;
   font-family:/*  "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,  */"Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
@@ -160,12 +159,12 @@ sup {
 }
 
 a {
-  color: #fed136;
+  color: #6dc2f3;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #e6b301;
+  color: #008cff;
   text-decoration: underline;
 }
 

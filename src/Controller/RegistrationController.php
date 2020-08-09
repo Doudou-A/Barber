@@ -7,6 +7,7 @@ use App\Form\UserType;
 use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -16,7 +17,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/inscription", name="security_registration")
      */
-    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer)
+    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, MailerInterface $mailer)
     {
         $user = new User();
 
@@ -36,18 +37,6 @@ class RegistrationController extends AbstractController
 
             $manager->persist($user);
             $manager->flush();
-
-            $message = (new \Swift_Message('Mail de Confirmation'))
-                ->setFrom('send@example.com')
-                ->setTo($user->getEmail())
-                ->setBody(
-                    'Voici le lien pour confirmer votre compte : </br>
-            http://localhost:8000/security/confirm/' . $user->getToken() . ' </br>
-            Vous pouvez utiliser votre compte durant 24h sans confirmer l\'adresse email.',
-                    'text/html'
-                );
-
-            $mailer->send($message);
 
             return $this->redirectToRoute('home');
         }

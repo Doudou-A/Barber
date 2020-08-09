@@ -53,6 +53,7 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $repo->findOneByEmail($form["email"]->getData());
             $message = (new Email())
+                ->embed(fopen('img/logo.png', 'r'), 'logo')
                 ->from('safouendakhli@workshop-barbershop.fr')
                 ->to($user->getEmail())
                 ->subject('Mot de passe oublié')

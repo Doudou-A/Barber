@@ -22,20 +22,31 @@ class ReservationRepository extends ServiceEntityRepository
     // /**
     //  * @return Reservation[] Returns an array of Reservation objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findMonth($first, $last)
     {
         return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('r.dateRDV > :first')
+            ->andWhere('r.dateRDV < :last')
+            ->setParameter('first', $first)
+            ->setParameter('last', $last)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
-
+    
+    public function findReservationTokken($coiffeurId, $date)
+    {
+        return $this->createQueryBuilder('r')
+            ->where('r.coiffeur = :coiffeurId')
+            ->andWhere('r.dateRDV = :date')
+            ->setParameter('coiffeurId', $coiffeurId)
+            ->setParameter('date', $date)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
     /*
     public function findOneBySomeField($value): ?Reservation
     {

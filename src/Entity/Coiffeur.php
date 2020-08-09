@@ -49,9 +49,15 @@ class Coiffeur
      */
     private $reservations;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Indisponibilite::class, mappedBy="coiffeur")
+     */
+    private $indisponibilites;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->indisponibilites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -144,6 +150,37 @@ class Coiffeur
             // set the owning side to null (unless already changed)
             if ($reservation->getCoiffeur() === $this) {
                 $reservation->setCoiffeur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Indisponibilite[]
+     */
+    public function getIndisponibilites(): Collection
+    {
+        return $this->indisponibilites;
+    }
+
+    public function addIndisponibilite(Indisponibilite $indisponibilite): self
+    {
+        if (!$this->indisponibilites->contains($indisponibilite)) {
+            $this->indisponibilites[] = $indisponibilite;
+            $indisponibilite->setCoiffeur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIndisponibilite(Indisponibilite $indisponibilite): self
+    {
+        if ($this->indisponibilites->contains($indisponibilite)) {
+            $this->indisponibilites->removeElement($indisponibilite);
+            // set the owning side to null (unless already changed)
+            if ($indisponibilite->getCoiffeur() === $this) {
+                $indisponibilite->setCoiffeur(null);
             }
         }
 

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!
+{% endblock %}
+
+{% block body %}
+	<h1 id="titreReservation" class="h3 text-grey font-weight-bold text-center col-12 border-bottom p-2 m-0">Dashboard</h1>
+
+	<div class="pt-3  mb-4" data-aos="fade-down" data-aos-duration="1000">
+		<div class="col-lg-6 m-auto p-3 border shadow">
+			<div class="d-flex justify-content-center flex-column w-100">
+				{% for key, date in aDate %}
+					<div class="m-2 d-flex">
+						{{key}}
+						:
+						{% for key, dateData in date %}
+							{{dateData|length}}
+							<a href="{{ path('reservation_delete', {'date':key}) }}" onclick="return confirm('Etes-vous sur de vouloir toutes les reservations du mois de {{key}} ?')" class="ml-4">&#128465;</a>
+						{% endfor %}
+					</div>
+				{% endfor %}
+					<div class="d-flex flex-column">
+						<a class="nav-link js-scroll-trigger" href="{{path('user_modification', {'id': app.user.id})}}">
+							Mon compte
+						</a>
+						<a class="nav-link js-scroll-trigger" href="{{path('user_role_modif')}}">
+							Gérer les comptes</a>
+					</div>
+			</div>
+		</div>
+	</div>
+	{% include 'common/index.html.twig' %}
+{% endblock %}

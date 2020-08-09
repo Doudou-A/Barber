@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use DateInterval;
 use App\Entity\Coiffeur;
+use App\Repository\IndisponibiliteRepository;
 use App\Repository\ReservationRepository;
 use App\Service\ReservationManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +18,7 @@ class ReservationShowController extends AbstractController
     /**
      * @Route("/Reservation-Show/{id}", name="reservation_show")
      */
-    public function reservationShow(Coiffeur $coiffeur, ReservationRepository $repo, ReservationManager $reservationManager)
+    public function reservationShow(Coiffeur $coiffeur, ReservationRepository $repo, ReservationManager $reservationManager, IndisponibiliteRepository $repoIndispo)
     {
         
         $today = date('Y-m-d');
@@ -92,6 +93,16 @@ class ReservationShowController extends AbstractController
         }
 
         // dd($aDate);
+
+        $aIndispo = $repoIndispo->findByCoiffeur($coiffeur);
+        $indispos = [];
+        foreach($aIndispo as $indispo){
+            $date = $indispo->getDateIndispo();
+            $date = $date->format('Y-m-d');
+
+            $indispos[] = $date;
+        }
+
         return new JsonResponse([
             'html' => $this->renderView('reservation/reservationShow.html.twig', [
                 'aDate' => $aDate,
@@ -101,6 +112,7 @@ class ReservationShowController extends AbstractController
                 'lastHour' => $lastHour,
                 'timeReservation' => $timeReservation,
                 'reservations' => $reservations,
+                'indispos' => $indispos,
             ])
         ]);
     }

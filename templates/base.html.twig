@@ -6,7 +6,7 @@
 			{% block title %}Workshop BarberShop
 			{% endblock %}
 		</title>
-		<link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css"/>
+		{# <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css"/> #}
 		<link rel="stylesheet" href="/style.css"/>
 		<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script language="javascript" src="/js/style.js"></script>
@@ -29,7 +29,7 @@
 
 		<!-- Navigation-->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-			<div class="container" data-aos="fade-down" data-aos-duration="1500">
+			<div class="" data-aos="fade-down" data-aos-duration="1500">‚
 				<a class="navbar-brand js-scroll-trigger" href="/">
 					<div class="font-SHR">
 						Workshop Barbershop
@@ -39,21 +39,21 @@
 					Menu
 					<i class="fas fa-bars ml-1"></i>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav text-uppercase ml-auto">
+				<div class="collapse navbar-collapse ml-5" id="navbarResponsive">
+					<ul class="navbar-nav text-uppercase ml-auto d-flex align-items-center">
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger p-3" href="/#presentation">A propos</a>
+							<a class="nav-link js-scroll-trigger" href="/#presentation">Presentation</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger p-3" href="/#team">Coiffeur</a>
+							<a class="nav-link js-scroll-trigger" href="/#team">Coiffeur</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger p-3" href="/#contact">Contact</a>
+							<a class="nav-link js-scroll-trigger" href="/#contact">Contact</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger bg-blue p-3" href="/reservation">Reservation</a>
+							<a class="nav-link js-scroll-trigger bg-blue" href="/reservation">Reservation</a>
 						</li>
-						{% if app.user %}
+						{% if app.user and not is_granted('ROLE_ADMIN') %}
 							<li class="nav-item">
 								<a class="nav-link js-scroll-trigger" href="{{path('user_modification', {'id': app.user.id})}}">
 									Mon compte
@@ -65,9 +65,31 @@
 									Deconnexion
 								</a>
 							</li>
+						{% elseif is_granted('ROLE_ADMIN') %}{# 
+							<li class="nav-item">
+								<a class="nav-link js-scroll-trigger" href="{{path('user_modification', {'id': app.user.id})}}">
+									Mon compte
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link js-scroll-trigger" href="{{path('user_role_modif')}}">
+									Gérer les comptes
+								</a>
+							</li> #}
+							<li class="nav-item">
+								<a class="nav-link js-scroll-trigger p-3" href="{{path('dashboard')}}">
+									Dashboard
+								</a>
+							</li>
+							<li class="nav-item d-flex flex-column">
+								<a class="nav-link js-scroll-trigger p-3" href="/logout">
+									<img src="{{ asset('img/icons8-déconnexion-100.png') }}" height="38px" weight="auto" class="mx-auto"/>
+									{# Deconnexion #}
+								</a>
+							</li>
 						{% else %}
 							<li class="nav-item d-flex flex-column">
-								<a class="nav-link js-scroll-trigger" href="/login">
+								<a class="nav-link js-scroll-trigger p-3" href="/login">
 									<img src="{{ asset('img/icons8-utilisateur-96.png') }}" height="38px" weight="auto"/>
 									Compte
 								</a>
@@ -76,19 +98,6 @@
 					</li>
 				</ul>
 			</div>
-		</div>
+		</head>
 	</head>
-</html></nav></head><body id="page-top" class="vh-100"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>
-
-AOS.init();</script>
-{% for message in app.flashes('success') %}
-<div class="alert alert-success flash">
-	{{ message }}
-</div>
-{% endfor %}
-{% for message in app.flashes('fail') %}
-<div class="alert alert-danger flash">
-	{{ message }}
-</div>
-{% endfor %}
-{% block body %}{% endblock %}{% block javascripts %}{% endblock %}</body></html>
+</html></div></head></html></nav></head><body id="page-top" class="vh-100"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script>{% for message in app.flashes('success') %}<div class="alert alert-success flash">{{ message }}</div>{% endfor %}{% for message in app.flashes('fail') %}<div class="alert alert-danger flash">{{ message }}</div>{% endfor %}{% block body %}{% endblock %}{% block javascripts %}{% endblock %}</body></html>
