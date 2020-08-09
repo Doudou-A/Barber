@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Hello UserRoleModifController!
 {% endblock %}
 
 {% block body %}
@@ -12,20 +12,10 @@
 			<h1 class="h3 text-grey font-weight-bold">Créer un compte</h1>
 			{{ form_start(form, {'attr': {'class': 'd-flex flex-column'}}
 			) }}
-			{{ form_row(form.email , {'attr': {'class': 'form-control mb-3'}, 'label' : 'Email'}
-				) }}
-			{{ form_row(form.name , {'attr': {'class': 'form-control mb-3'}, 'label' : 'Nom'}
-				) }}
-			{{ form_row(form.firstName , {'attr': {'class': 'form-control mb-3'}, 'label' : 'Prénom'}
-				) }}
-			{{ form_row(form.number , {'attr': {'class': 'form-control mb-3'}, 'label' : 'Numéro de Téléphone'}
-				) }}
-			{{ form_row(form.password, {'attr': {'class': 'form-control mb-3 md-1'}, 'label' : 'Mot de Passe'}
-				) }}
-			{{ form_row(form.confirm_password, {'attr': {'class': 'form-control mb-3 md-1'}, 'label' : 'Confirmation Mot De Passe'}
+			{{ form_row(form.name , {'attr': {'class': 'form-control mb-3'}}
 				) }}
 			<button class="btn btn-blue col-lg-6 mt-3 mx-auto" type="submit">
-				Créer mon compte
+				Modifier cet utilisateur en tant que administrateur
 			</button>
 			{{ form_end(form) }}
 			<div class="border-top mt-3 d-flex justify-content-center">

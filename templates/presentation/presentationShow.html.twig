@@ -4,42 +4,39 @@
 {% endblock %}
 
 {% block body %}
-	<div>
-		<h1 class="h3 text-grey font-weight-bold text-center col-12 border-bottom p-2 m-0">{{titre}}</h1>
-	</div>
+	<h1 class="h3 text-grey font-weight-bold text-center col-12 border-bottom p-2 m-0">{{titre}}</h1>
 	<div class="d-flex bg-presentation">
 		{% for presentation in aPresentation %}
 			{% if presentation.format == true %}
 				<div class="d-flex flex-column col-3 hoverWB">
-				{% if is_granted('ROLE_ADMIN') %}
-				<div class="d-flex">
-					<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white">&#128394;</a>
-					<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')"  class="position-absolute bg-white"
- class="position-absolute bg-white">&#128465;</a>
-				{% endif %}
-				<video id="example_video_1" class="video-js vjs-default-skin col-lg-2" controls preload="auto" {# width="640" height="264" #} poster="http://video-js.zencoder.com/oceans-clip.png">
-					<source src="{{ asset('uploads/presentation/' ~ presentation.file) }}" type='video/mp4'>
-					<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that
-						<a href="http://videojs.com/html5-video-support/" target="_blank">
-							supports HTML5 video</a>
-					</p>
-				</video>
-			{% else %}
-				<div class="d-flex flex-column col-3 hoverWB zoomPresentation hiddenPresentation">
 					{% if is_granted('ROLE_ADMIN') %}
 						<div class="d-flex">
-							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute ml-3 bg-white">&#128394;</a>
-							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
+							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white">&#128394;</a>
+							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')" class="position-absolute bg-white" class="position-absolute bg-white">&#128465;</a>
+						{% endif %}
+						<video id="example_video_1" class="video-js vjs-default-skin col-lg-2" controls preload="auto" {# width="640" height="264" #} poster="http://video-js.zencoder.com/oceans-clip.png">
+							<source src="{{ asset('uploads/presentation/' ~ presentation.file) }}" type='video/mp4'>
+							<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that
+								<a href="http://videojs.com/html5-video-support/" target="_blank">
+									supports HTML5 video</a>
+							</p>
+						</video>
+					{% else %}
+						<div class="d-flex flex-column col-3 hoverWB zoomPresentation hiddenPresentation">
+							{% if is_granted('ROLE_ADMIN') %}
+								<div class="d-flex">
+									<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute ml-3 bg-white">&#128394;</a>
+									<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
+								</div>
+							{% endif %}
+							<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" alt="salon-de-coiffure" width="100%" height="auto" class="shadow">
 						</div>
 					{% endif %}
-					<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" alt="salon-de-coiffure" width="100%" height="auto" class="shadow">
-				</div>
-			{% endif %}
-		{% endfor %}
-		{% if is_granted('ROLE_ADMIN') %}
-			<div class=" p-2 rounded-circle text-center hiddenPresentation" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000">
-				<a class="m-auto display-1 bg-grey" href="/admin/presentation">+</a>
+				{% endfor %}
+				{% if is_granted('ROLE_ADMIN') %}
+					<div class=" p-2 rounded-circle text-center hiddenPresentation" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000">
+						<a class="m-auto display-1 bg-grey addBtn" href="/admin/presentation">+</a>
+					</div>
+				{% endif %}
 			</div>
-		{% endif %}
-	</div>
-{% endblock %}
+		{% endblock %}

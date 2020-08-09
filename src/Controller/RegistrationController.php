@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserType;
 use App\Form\RegistrationType;
-use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +26,10 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setDateCreated(new \DateTime());
-            $user->setToken(random_bytes(10));
+            $token = random_bytes(15);
+            $token = bin2hex($token);
+            $user->setToken($token);
+            $user->setNumberChange(0);
 
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
@@ -50,7 +53,8 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render('security/registration.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'EditMode' => false,
         ]);
     }
 }

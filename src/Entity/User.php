@@ -53,6 +53,26 @@ class User implements UserInterface
      */
     private $token;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $number;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $numberChange;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -151,6 +171,54 @@ class User implements UserInterface
     public function setToken(?string $token): self
     {
         $this->token = $token;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getNumber(): ?int
+    {
+        return $this->number;
+    }
+
+    public function setNumber(int $number): self
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    public function getNumberChange(): ?string
+    {
+        return $this->numberChange;
+    }
+
+    public function setNumberChange(?string $numberChange): self
+    {
+        $this->numberChange = $numberChange;
 
         return $this;
     }

@@ -128,3 +128,25 @@ $(function () {
         $('.hiddenPresentation').removeClass('d-none').addClass('d-flex');
     })
 });
+
+//request reservation
+$(function () {
+    $('body').on('click', '.coiffeurReservation', function () {
+        var coiffeurId = this.id;
+        var divRequest = "#coiffeur_request";
+        var titre = "#titreReservation";
+        $.ajax({
+            type: 'GET',
+            url: '/Reservation-Show/' + coiffeurId,
+            timeout: 3000,
+            success: function (data) {
+                console.log(divRequest);
+                $(divRequest).html(data.html);
+                $(titre).html("Choisissez la date de votre réservation");
+            },
+            error: function () {
+                alert('La requête n\'a pas abouti');
+            }
+        });
+    });
+});

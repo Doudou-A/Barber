@@ -25,7 +25,7 @@ class Reservation
     /**
      * @ORM\ManyToOne(targetEntity=Coiffeur::class, inversedBy="reservations")
      */
-    private $Coiffeur;
+    private $coiffeur;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reservations")
@@ -51,12 +51,12 @@ class Reservation
 
     public function getCoiffeur(): ?Coiffeur
     {
-        return $this->Coiffeur;
+        return $this->coiffeur;
     }
 
-    public function setCoiffeur(?Coiffeur $Coiffeur): self
+    public function setCoiffeur(?Coiffeur $coiffeur): self
     {
-        $this->Coiffeur = $Coiffeur;
+        $this->coiffeur = $coiffeur;
 
         return $this;
     }

@@ -9,7 +9,7 @@
 			<div class="d-flex justify-content-center w-100">
 				<img src="{{ asset('img/logo.png') }}" alt="workshop-barbershop" class="col-3 mx-auto p-2">
 			</div>
-			<h1 class="h3 text-grey font-weight-bold">Créer un compte</h1>
+			<h1 class="h3 text-grey font-weight-bold">Modifier son compte</h1>
 			{{ form_start(form, {'attr': {'class': 'd-flex flex-column'}}
 			) }}
 			{{ form_row(form.email , {'attr': {'class': 'form-control mb-3'}, 'label' : 'Email'}
@@ -20,17 +20,8 @@
 				) }}
 			{{ form_row(form.number , {'attr': {'class': 'form-control mb-3'}, 'label' : 'Numéro de Téléphone'}
 				) }}
-			{{ form_row(form.password, {'attr': {'class': 'form-control mb-3 md-1'}, 'label' : 'Mot de Passe'}
-				) }}
-			{{ form_row(form.confirm_password, {'attr': {'class': 'form-control mb-3 md-1'}, 'label' : 'Confirmation Mot De Passe'}
-				) }}
 			<button class="btn btn-blue col-lg-6 mt-3 mx-auto" type="submit">
-				Créer mon compte
+				Modifier mon compte
 			</button>
 			{{ form_end(form) }}
-			<div class="border-top mt-3 d-flex justify-content-center">
-				<a class="btn btn-blue-reverse col-lg-6 mt-3" href="{{ path('app_login')}}">
-					Déjà client? Se connecter
-				</a>
-			</div>
 		{% endblock %}

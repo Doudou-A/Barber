@@ -24,9 +24,9 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        if ($this->getUser()) {
+            return $this->redirectToRoute('home');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -98,7 +98,8 @@ class SecurityController extends AbstractController
                 $hash = $encoder->encodePassword($user, $form["password"]->getData());
                 $user->setPassword($hash);
                 $token = random_bytes(15);
-                $user->setToken(bin2hex($token));
+                $token = bin2hex($token);
+                $user->setToken($token);
 
                 $manager->persist($user);
                 $manager->flush();

@@ -1,29 +1,37 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello ReservationController!
-{% endblock %}
-
-{% block body %}
-	<div class="col-lg-6 border d-flex horizontal-scrollable">
-		{% for dates in aDate %}
+<div class="col-lg-10 offset-1 border d-flex horizontal-scrollable bg-fonce font-weight-bold text-white">
+	{% set continue = false %}
+	{% for dates in aDate %}
+		{% if "Dimanche" in dates.dateFr or "Lundi" in dates.dateFr or (today == dates.dateData and lastHour < now ) %}
+			{% set continue = true %}
+		{% endif %}
+		{% if not continue %}
 			<div class="col-3 d-flex flex-column h-100 text-center">
 				<div>
 					{{dates.dateFr}}
 				</div>
-				{% for hour in dates.hour %}
+				{% for rdv, hour in dates.hour %}
 					<form action="/reservation/create" enctype="multipart/form-data" class="formReservation" method="POST">
 						<div class="row col-12 p-0 m-0">
 							<div style="display: none;">
-								<input class="col-lg-12 p-2 animated fadeInLeft border" value='3' type="number" name="coiffeur" required="required"/>
+								<input class="col-lg-12 p-2 animated border" value='{{coiffeur.id}}' type="number" name="coiffeur" required="required"/>
 							</div>
 							<div style="display: none;">
-								<input class="col-lg-12 p-2 animated fadeInLeft border" value="{{dates.dateData}} {{hour}}" type="text" name="date"/>
+								<input class="col-lg-12 p-2 animated border" value="{{rdv}}" type="text" name="date"/>
 							</div>
-							<input type="submit" name="valide" value="{{hour}}" class="col-6 offset-3"/>
+							{% if today == dates.dateData and timeReservation > hour %}
+								<div class="d-none">{{hour}}</div>
+							{% elseif rdv in reservations %}
+								<div type="submit" class="col-6 offset-3 bg-danger rounded text-white border font-weight-normal cursor-forbidden">{{hour}}</div>
+							{% else %}
+								<input type="submit" name="valide" value="{{hour}}" class="col-6 offset-3 hoverBgBlue"/>
+							{% endif %}
 						</div>
 					</form>
 				{% endfor %}
 			</div>
-		{% endfor %}
-	</div>
-{% endblock %}
+		{% endif %}
+		{% if continue %}
+			{% set continue = false %}
+		{% endif %}
+	{% endfor %}
+</div>

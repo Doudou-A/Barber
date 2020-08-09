@@ -2,18 +2,44 @@
 
 namespace App\Controller;
 
-use DateInterval;
 use DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use DateInterval;
+use App\Entity\Coiffeur;
+use App\Repository\ReservationRepository;
+use App\Service\ReservationManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Date;
 
 class ReservationShowController extends AbstractController
 {
     /**
-     * @Route("/Reservation-Show", name="reservation_show")
+     * @Route("/Reservation-Show/{id}", name="reservation_show")
      */
-    public function reservationShow()
+    public function reservationShow(Coiffeur $coiffeur, ReservationRepository $repo, ReservationManager $reservationManager)
     {
+        
+        $today = date('Y-m-d');
+        $now = $reservationManager->getNow();
+
+        $lastHour = new DateTime();
+        $lastHour->setTime(17, 00);
+        
+        $timeReservation = new Datetime();
+        $hours_to_add = 4;
+        $timeReservation->add(new DateInterval('PT' . $hours_to_add . 'H'));
+        $timeReservation = $timeReservation->format('H:i');
+
+        $reservationCoiffeur = $repo->findByCoiffeur($coiffeur->getId());
+        $reservations = [];
+        foreach ($reservationCoiffeur as $reservationTaked) {
+            $dateRDV = $reservationTaked->getDateRDV();
+            $dayRDV = $dateRDV->format('Y-m-d');
+            $hourRDV = $dateRDV->format('H:i');
+            $reservations[] = "$dayRDV $hourRDV";
+        }
+
         for ($i = 1; $i <= 30; $i++) {
             if ($i == 1) {
                 $aDate = [];
@@ -28,11 +54,11 @@ class ReservationShowController extends AbstractController
                 $aHour = [];
                 $hour->setTime(10, 00);
                 $time = $hour->format('H:i');
-                $aHour[] = $time;
-                for ($j = 1; $j <= 18; $j++) {
+                $aHour["$dateRequest $time"] = $time;
+                for ($j = 1; $j <= 17; $j++) {
                     $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
                     $time = $hour->format('H:i');
-                    $aHour[] = $time;
+                    $aHour["$dateRequest $time"] = $time;
                 }
 
                 $aDateHour = [];
@@ -50,11 +76,11 @@ class ReservationShowController extends AbstractController
             $aHour = [];
             $hour->setTime(10, 00);
             $time = $hour->format('H:i');
-            $aHour[] = $time;
-            for ($j = 1; $j <= 18; $j++) {
+            $aHour["$dateRequest $time"] = $time;
+            for ($j = 1; $j <= 17; $j++) {
                 $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
                 $time = $hour->format('H:i');
-                $aHour[] = $time;
+                $aHour["$dateRequest $time"] = $time;
             }
 
             $aDateHour = [];
@@ -66,9 +92,16 @@ class ReservationShowController extends AbstractController
         }
 
         // dd($aDate);
-
-        return $this->render('reservation/reservationShow.html.twig', [
-            'aDate' => $aDate,
+        return new JsonResponse([
+            'html' => $this->renderView('reservation/reservationShow.html.twig', [
+                'aDate' => $aDate,
+                'coiffeur' => $coiffeur,
+                'today' => $today,
+                'now' => $now,
+                'lastHour' => $lastHour,
+                'timeReservation' => $timeReservation,
+                'reservations' => $reservations,
+            ])
         ]);
     }
 }

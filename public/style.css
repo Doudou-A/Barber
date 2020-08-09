@@ -24,7 +24,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #fed136;
+  /* --primary: #fed136; ADO */
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -10595,7 +10595,7 @@ header.wrapper {
   color: white;
 }
 
-.bg-grey:hover{
+.addBtn:hover{
   background-color: white;
   color: #2a2d2a;
   cursor: pointer;
@@ -10672,6 +10672,14 @@ header.wrapper {
   background-color: #3a71b1;
 }
 
+.hoverBgBlue:hover{
+  background-color: #3a71b1;
+  border: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
 .btn-blue{
   background-color: #3a71b1;
   color: white;
@@ -10700,4 +10708,8 @@ header.wrapper {
 
 .bg-fonce{
  background-color:  #343a40 !important;
+}
+
+.cursor-forbidden:hover{
+  cursor: not-allowed;
 }
