@@ -5,10 +5,10 @@
 
 {% block body %}
 	<h1 class="h3 text-grey font-weight-bold text-center col-12 border-bottom p-2 m-0">{{titre}}</h1>
-	<div class="d-flex bg-presentation">
+	<div class="row bg-presentation">
 		{% for presentation in aPresentation %}
 			{% if presentation.format == true %}
-				<div class="d-flex flex-column col-3 hoverWB">
+				<div class="d-flex flex-column col-4 col-lg-3 hoverWB">
 					{% if is_granted('ROLE_ADMIN') %}
 						<div class="d-flex">
 							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white">&#128394;</a>
@@ -22,7 +22,7 @@
 							</p>
 						</video>
 					{% else %}
-						<div class="d-flex flex-column col-3 hoverWB zoomPresentation hiddenPresentation">
+						<div class="d-flex flex-column col-4 col-lg-3 p-3 hoverWB zoomPresentation hiddenPresentation">
 							{% if is_granted('ROLE_ADMIN') %}
 								<div class="d-flex">
 									<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute ml-3 bg-white">&#128394;</a>
