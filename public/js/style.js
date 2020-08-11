@@ -255,6 +255,7 @@ $(function () {
         });
     });
 });
+
 $(function () {
     $('body').on('click', '.adminReservationOpen', function () {
         var divRequest = $(this).find("#user_request");
@@ -278,5 +279,22 @@ $(function () {
         event.preventDefault();
         var width = $("#block").width();
         $("#block").animate({ scrollLeft: "-=" + width }, "slow");
+    });
+});
+
+//PhoneOpenHour
+$(function () {
+    $('body').on('click', '#dayPhoneRdv', function () {
+        var divHourPhone = $(this).find(".hourPhoneRdv");
+        $(this).removeClass('col-6').addClass('col-10').addClass('offset-1');
+        divHourPhone.removeClass('d-none').addClass('d-block');
+    });
+});
+$(function () {
+    $('body').on('click', '#dayPhoneRdvDisappear', function () {
+        var divDayPhone = $(this).find("#hourPhoneRdv");
+        var divHourPhone = divDayPhone.find("#hourPhoneRdv");
+        divDayPhone.addClass('col-6').removeClass('col-10').removeClass('offset-1');
+        divHourPhone.removeClass('d-none').addClass('d-block');
     });
 });
