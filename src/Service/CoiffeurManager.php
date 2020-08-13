@@ -3,8 +3,9 @@
 namespace App\Service;
 
 use DateTime;
-use App\Service\CommonManager;
-use App\Entity\Indisponibilite;
+use App\Entity\Coiffeur;
+use App\DOI\ServerAddCoiffeurRequest;
+use App\Repository\CoiffeurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Collection;
 use phpDocumentor\Reflection\Types\Integer;
@@ -16,31 +17,29 @@ class CoiffeurManager
      */
     private $manager;
 
-    public function __construct(EntityManagerInterface $manager, CommonManager $commonManager)
+    /**
+     * @var CoiffeurRepository
+     */
+    private $repository;
+
+    public function __construct(EntityManagerInterface $manager, CoiffeurRepository $repository, CommonManager $commonManager)
     {
         $this->manager = $manager;
         $this->commonManager = $commonManager;
+        $this->repository = $repository;
     }
 
-    
-
-    public function delete($param){
-        $param = explode('_', $param);
-
-        $coiffeur = $repo->find($param[0]);
-
-        $date = explode('-', $param[1]);
-        $dateTime = new DateTime();
-        $dateTime = $dateTime->setDate($date[0], $date[1], $date[2]);
-
-        $indispo = new Indisponibilite();
-        $indispo->setDateIndispo($dateTime);
-        $indispo->setCoiffeur($coiffeur);
-    }
-
-    public function supprSnap($coiffeur): void
+    public function delete(Coiffeur $coiffeur): void
     {
-        $snapName = $coiffeur->getSnap();
-        unlink("uploads/coiffeurs/$snapName");
+        $this->commonManager->supprFile($coiffeur, 'coiffeur');
+        $this->supprSnap($coiffeur);
+        
+        $this->commonManager->remove($coiffeur);
+    }
+    
+    public function supprSnap(Coiffeur $coiffeur): void
+    {
+        $fileName = $coiffeur->getSnap();
+        unlink("uploads/coiffeurs/$fileName");
     }
 }

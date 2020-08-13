@@ -31,26 +31,19 @@ class PresentationManager
 
     public function delete(Presentation $presentation): void
     {
-        $this->supprFile($presentation);
-        
-        $this->remove($presentation);
+        $this->commonManager->supprFile($presentation, 'presentation');
+        $this->commonManager->remove($presentation);
     }
     
-    public function persist(Presentation $presentation): void
-    {
-        $this->manager->persist($presentation);
-        $this->manager->flush();
-    }
+    // public function persist(Presentation $presentation): void
+    // {
+    //     $this->manager->persist($presentation);
+    //     $this->manager->flush();
+    // }
     
-    public function remove(Presentation $presentation): void
-    {
-        $this->manager->remove($presentation);
-        $this->manager->flush();
-    }
-    
-    public function supprFile(Presentation $presentation): void
-    {
-        $fileName = $presentation->getFile();
-        unlink("uploads/presentation/$fileName");
-    }
+    // public function supprFile(Presentation $presentation): void
+    // {
+    //     $fileName = $presentation->getFile();
+    //     unlink("uploads/presentation/$fileName");
+    // }
 }

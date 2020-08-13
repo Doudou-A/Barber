@@ -2,34 +2,34 @@
 <html>
 	<head style="overflow-x: visible !important ;">
 		<meta charset="UTF-8">
-		<title>
-			{% block title %}Workshop BarberShop
-			{% endblock %}
-		</title>
-		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-		<meta name="description" content=""/>
-		<meta name="author" content=""/>
+		<title>
+			{% block title %}{% endblock %}
+		</title>
 		<script language="javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script src="assets/mail/contact_me.js"></script><!-- Core theme JS--><script src="js/scripts.js"></script>
+		<script src="assets/mail/contact_me.js"></script>
+		<!-- Core theme JS-->
+		<script language="javascript" src="/js/scripts.js"></script>
 		<script language="javascript" src="/js/style.js"></script>
 		<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script><!-- Third party plugin JS--><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script><!-- Contact form JS--><script src="assets/mail/jqBootstrapValidation.js"></script>
-		{# <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css"/> #}
+		<link
+		rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css"/>
+		{# <link rel="stylesheet" href="/public.css"/> #}
 		<link rel="stylesheet" href="/style.css"/>
-		{# <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/> #}
+		<link rel="icon" type="image/x-icon" href="/img/logo.png"/>
 		<!-- Font Awesome icons (free version)-->
 		<!-- Google fonts-->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
-		<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/> <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
 		<!-- Core theme CSS (includes Bootstrap)-->
 		{# <link href="css/styles.css" rel="stylesheet"/> {% block stylesheets %}{% endblock %} #}
 		<!-- </div> Bootstrap core JS-->
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top overflow-hidden w-100" id="mainNav">
-			{# <div class="container" data-aos="fade-down" data-aos-duration="1500"> #}
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+			<div class="container" data-aos="fade-down" data-aos-duration="1500">
 				<a class="navbar-brand js-scroll-trigger font-SHR" href="/">
 					<div class="font-SHR">
 						Workshop Barbershop
@@ -42,27 +42,27 @@
 				<div class="collapse navbar-collapse ml-5" id="navbarResponsive">
 					<ul class="navbar-nav text-uppercase ml-auto  d-flex align-items-center">
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="/#presentation">Presentation</a>
+							<a class="nav-link js-scroll-trigger presentationNavBar cursor">Presentation</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="/#team">Coiffeur</a>
+							<a class="nav-link js-scroll-trigger coiffeurNavBar cursor">Coiffeur</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="/#contact">Contact</a>
+							<a class="nav-link js-scroll-trigger contactNavBar cursor">Contact</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger bg-blue" href="/reservation">Reservation</a>
+							<a class="nav-link js-scroll-trigger p-2 bg-blue" href="/reservation">Reservation</a>
 						</li>
 						{% if app.user and not is_granted('ROLE_ADMIN') %}
 							<li class="nav-item">
 								<a class="nav-link js-scroll-trigger" href="{{path('user_modification', {'id': app.user.id})}}">
-									Mon compte
+									Compte
 								</a>
 							</li>
 							<li class="nav-item d-flex flex-column">
 								<a class="nav-link js-scroll-trigger" href="/logout">
 									<img src="{{ asset('img/icons8-déconnexion-100.png') }}" height="38px" weight="auto"/>
-									Deconnexion
+									{# Deconnexion #}
 								</a>
 							</li>
 						{% elseif is_granted('ROLE_ADMIN') %}
@@ -73,14 +73,12 @@
 							</li>
 							<li class="nav-item d-flex flex-column">
 								<a class="nav-link js-scroll-trigger p-3" href="/logout">
-									<img
-									src="{{ asset('img/icons8-déconnexion-100.png') }}" height="38px" weight="auto" class="mx-auto"/>
-								{# Deconnexion #}
+									<img src="{{ asset('img/icons8-déconnexion-100.png') }}" height="38px" weight="auto" class="mx-auto"/>
 								</a>
 							</li>
 						{% else %}
 							<li class="nav-item d-flex flex-column">
-								<a class="nav-link js-scroll-trigger p-3" href="/login">
+								<a class="nav-link js-scroll-trigger p-3 d-flex align-items-center" href="/login">
 									<img src="{{ asset('img/icons8-utilisateur-96.png') }}" height="38px" weight="auto"/>
 									Compte
 								</a>
@@ -88,22 +86,25 @@
 						{% endif %}
 					</ul>
 				</div>
-			{# </div> #}
+			</div>
 		</nav>
 	</head>
-	<body class="vh-100">
-		<script>
-			AOS.init();
-		</script>
+	<body
+		class="vh-100">
 		<!-- Navigation-->
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success flash">{{ message }}</div>
 		{% endfor %}
 		{% for message in app.flashes('fail') %}
-			<div class="alert alert-danger flash">{{ message }}
-			</div>
+			<div class="alert alert-danger flash">{{ message }}</div>
 		{% endfor %}
 		{% block body %}{% endblock %}
 		{% block javascripts %}{% endblock %}
 	</body>
 </html>
+<script>
+	AOS.init({
+		disable:'mobile',
+	}
+	);
+</script>

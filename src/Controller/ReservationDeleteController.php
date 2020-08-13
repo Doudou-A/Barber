@@ -36,7 +36,7 @@ class ReservationDeleteController extends AbstractController
             }
 
             $this->addFlash('success', 'Ces réservations ont été supprimées');
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('dashboard');
         }
 
         return $this->render('reservation_delete/index.html.twig', [

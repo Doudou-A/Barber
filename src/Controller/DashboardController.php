@@ -18,8 +18,8 @@ class DashboardController extends AbstractController
         $aCoiffeur = $repoCoiffeur->findAll();
 
         $aReservation = $repoReservation->findAll();
-        $now = $reservationManager->getNow();
-        $now = $now->format('Y-m');
+        $now = $reservationManager->getNow('Y-m');
+        // $now = $now->format('Y-m');
 
         $aDate = [];
         foreach($aReservation as $reservation){

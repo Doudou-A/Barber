@@ -48,6 +48,19 @@ class IndisponibiliteManager
         $dateTime = $dateTime->setDate($date[0], $date[1], $date[2]);
     }
 
+    public function getAIndispo($coiffeur){
+        $aIndispo = $this->repo->findByCoiffeur($coiffeur);
+        $indispos = [];
+        foreach($aIndispo as $indispo){
+            $date = $indispo->getDateIndispo();
+            $date = $date->format('Y-m-d');
+
+            $indispos[] = $date;
+        }
+
+        return $indispos;
+    }
+
     public function delete($param){
         $coiffeur = null;
         $dateTime = null;

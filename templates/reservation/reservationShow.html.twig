@@ -20,7 +20,7 @@
 								<div style="display: none;">
 									<input class="col-lg-12 p-2 animated border" value="{{rdv}}" type="text" name="date"/>
 								</div>
-								{% if today == dates.dateData and timeReservation > hour %}
+								{% if today == dates.dateData and timeReservation > hour and is_granted('ROLE_ADMIN') == false %}
 									<div class="d-none">{{hour}}</div>
 								{% elseif dates.dateData in indispos %}
 									<div class="col-6 offset-3 input cursor-forbidden" style="text-decoration: line-through; padding: 3px 6px; border-color: rgb(118, 118, 118), rgb(195, 195, 195);">{{hour}}</div>
@@ -28,7 +28,7 @@
 									{% if is_granted('ROLE_ADMIN') %}
 										<div id="{{coiffeur.id}}_{{rdv}}" class="col-6 offset-3 bg-primary rounded text-white border font-weight-normal adminReservation">{{hour}}
 											<div id="user_request" class='d-flex flex-column'></div>
-											<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation">Supprimer</div>
+											<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation">Suppr</div>
 										</div>
 									{% else %}
 										<div class="col-6 offset-3 bg-danger rounded text-white border font-weight-normal cursor-forbidden">{{hour}}</div>
@@ -39,10 +39,12 @@
 							</div>
 						</form>
 					{% endfor %}
-					{% if dates.dateData in indispos %}
-					<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-primary m-2 rounded text-white border font-weight-normal cursor adminDisponibleCoiffeur">Disponible</div>
-					{% else %}
-					<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-danger m-2 rounded text-white border font-weight-normal cursor adminIndisponibleCoiffeur">Indisponible</div>
+					{% if is_granted('ROLE_ADMIN')%}
+						{% if dates.dateData in indispos %}
+							<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-primary m-2 p-2 rounded text-white border font-weight-normal cursor adminDisponibleCoiffeur">Disponible</div>
+						{% else %}
+							<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-danger m-2 p-2 rounded text-white border font-weight-normal cursor adminIndisponibleCoiffeur">Indisponible</div>
+						{% endif %}
 					{% endif %}
 				</div>
 			{% endif %}
@@ -62,8 +64,8 @@
 				{% set continue = true %}
 			{% endif %}
 			{% if not continue %}
-				<div id="dayPhoneRdv" class="col-3 m-2 d-flex flex-wrap justify-content-around border rounded bg-white text-center p-0">
-					<div id="dayPhoneRdvDisappear" class="col-12">
+				<div id="dayPhone_{{dates.dateData}}" class="col-3 m-2 d-flex flex-wrap justify-content-around border rounded bg-white text-center p-0 dayPhoneRdv">
+					<div id="{{dates.dateData}}" class="col-12 dataPhone">
 						{{dates.dateFr}}
 					</div>
 					{% for rdv, hour in dates.hour %}
@@ -75,30 +77,32 @@
 								<div style="display: none;">
 									<input class="col-lg-12 p-2 animated border" value="{{rdv}}" type="text" name="date"/>
 								</div>
-								{% if today == dates.dateData and timeReservation > hour %}
+								{% if today == dates.dateData and timeReservation > hour and is_granted('ROLE_ADMIN') == false %}
 									<div class="d-none">{{hour}}</div>
 								{% elseif dates.dateData in indispos %}
 									<div class="col-6 offset-3 input cursor-forbidden" style="text-decoration: line-through; padding: 3px 6px; border-color: rgb(118, 118, 118), rgb(195, 195, 195);">{{hour}}</div>
 								{% elseif rdv in reservations %}
 									{% if is_granted('ROLE_ADMIN') %}
-										<div id="{{coiffeur.id}}_{{rdv}}" class="col-6 offset-3 bg-primary rounded text-white border font-weight-normal adminReservation">{{hour}}
+										<div id="{{coiffeur.id}}_{{rdv}}" class="p-2 bg-primary rounded text-white border font-weight-normal adminReservation">{{hour}}
 											<div id="user_request" class='d-flex flex-column'></div>
-											<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation">Supprimer</div>
+											<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation">Suppr</div>
 										</div>
 									{% else %}
-										<div class="col-6 offset-3 bg-danger rounded text-white border font-weight-normal cursor-forbidden">{{hour}}</div>
+										<div class="bg-danger rounded text-white border font-weight-normal cursor-forbidden">{{hour}}</div>
 									{% endif %}
 								{% else %}
 									<input type="submit" name="valide" value="{{hour}}" class="col-12 m-1 hoverBgBlue"/>
 								{% endif %}
 							</div>
 						</form>
-					 {% endfor %}
-					{# {% if dates.dateData in indispos %} 
-					<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-primary m-2 rounded text-white border font-weight-normal cursor adminDisponibleCoiffeur">Disponible</div>
-					{% else %}
-					<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-danger m-2 rounded text-white border font-weight-normal cursor adminIndisponibleCoiffeur">Indisponible</div>
-					{% endif %} #}
+					{% endfor %}
+					{% if is_granted('ROLE_ADMIN')%}
+						{% if dates.dateData in indispos %}
+							<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-primary p-2 rounded text-white border font-weight-normal cursor adminDisponibleCoiffeur">Dispo</div>
+						{% else %}
+							<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-danger p-2 rounded text-white border font-weight-normal cursor adminIndisponibleCoiffeur">Indispo</div>
+						{% endif %}
+					{% endif %}
 				</div>
 			{% endif %}
 			{% if continue %}

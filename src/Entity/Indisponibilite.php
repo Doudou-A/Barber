@@ -24,6 +24,7 @@ class Indisponibilite
 
     /**
      * @ORM\ManyToOne(targetEntity=Coiffeur::class, inversedBy="indisponibilites")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $coiffeur;
 

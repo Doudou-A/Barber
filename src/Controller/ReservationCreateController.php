@@ -3,11 +3,10 @@
 namespace App\Controller;
 
 use DateTime;
-use App\Entity\Reservation;
-use App\Service\CommonManager;
 use Symfony\Component\Mime\Email;
 use App\Repository\CoiffeurRepository;
 use App\Repository\ReservationRepository;
+use App\Service\ReservationManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +17,7 @@ class ReservationCreateController extends AbstractController
     /**
      * @Route("/reservation/create", name="reservation_create")
      */
-    public function reservationCreate(Request $request, CoiffeurRepository $repo, CommonManager $commonManager, ReservationRepository $repoReservation, MailerInterface $mailer)
+    public function reservationCreate(Request $request, CoiffeurRepository $repo, ReservationManager $reservationManager, ReservationRepository $repoReservation, MailerInterface $mailer)
     {
         $user = $this->getUser();
         
@@ -42,14 +41,7 @@ class ReservationCreateController extends AbstractController
             return $this->redirectToRoute('reservation');
         }
 
-        $reservation = new Reservation;
-        // $date->setTime($form["date"]);
-
-        $reservation->setUser($user);
-        $reservation->setCoiffeur($coiffeur);
-        $reservation->setDateRDV($date);
-
-        $commonManager->persist($reservation);
+        $reservationManager->addReservation($user, $coiffeur, $date);
 
        /*  $message = (new Email())
         ->from('safouendakhli@workshop-barbershop.fr')

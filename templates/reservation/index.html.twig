@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReservationController!
+{% block title %}Reservation
 {% endblock %}
 
 {% block body %}
@@ -13,4 +13,8 @@
 		{% endfor %}
 	{% endif %}
 	{% include 'common/index.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+	<script language="javascript" src="/js/reservation.js"></script>
 {% endblock %}

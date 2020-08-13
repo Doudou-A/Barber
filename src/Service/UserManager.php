@@ -9,6 +9,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Collection;
 use phpDocumentor\Reflection\Types\Integer;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserManager
 {
@@ -17,11 +18,25 @@ class UserManager
      */
     private $manager;
 
-    public function __construct(EntityManagerInterface $manager, CommonManager $commonManager, UserRepository $repo)
+    public function __construct(EntityManagerInterface $manager, CommonManager $commonManager, UserRepository $repo, UserPasswordEncoderInterface $encoder)
     {
-        $this->manager = $manager;
         $this->commonManager = $commonManager;
+        $this->encoder = $encoder;
+        $this->manager = $manager;
         $this->repo = $repo;
+    }
+
+    public function addUser($user){
+        $user->setDateCreated(new \DateTime());
+        $token = random_bytes(15);
+        $token = bin2hex($token);
+        $user->setToken($token);
+        $user->setNumberChange(0);
+
+        $hash = $this->encoder->encodePassword($user, $user->getPassword());
+        $user->setPassword($hash);
+
+        return $user;
     }
 
     public function findAllUser()

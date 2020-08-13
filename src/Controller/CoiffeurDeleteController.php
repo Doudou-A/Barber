@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Coiffeur;
-use App\Service\CommonManager;
 use App\Service\CoiffeurManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

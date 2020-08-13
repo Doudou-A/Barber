@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\Mime\Email;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;

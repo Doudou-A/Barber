@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Coiffeur;
 use App\Form\CoiffeurType;
+use App\Service\CoiffeurManager;
 use App\Service\CommonManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +18,7 @@ class CoiffeurCreateController extends AbstractController
      * @Route("/admin/coiffeur", name="coiffeur")
      * @Route("/admin/{id}/coiffeur", name="coiffeur_edit")
      */
-    public function coiffeurCreate(Coiffeur $coiffeur=null, Request $request, EntityManagerInterface $manager, CommonManager $commonManager)
+    public function coiffeurCreate(Coiffeur $coiffeur=null, Request $request, EntityManagerInterface $manager, CommonManager $commonManager, CoiffeurManager $coiffeurManager)
     {
         if(!$coiffeur){
             $coiffeur = new Coiffeur;
@@ -29,6 +30,11 @@ class CoiffeurCreateController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if($coiffeur->getFile() !== null && $form['file']->getData() !== null){
                 $commonManager->supprFile($coiffeur, 'coiffeurs');
+                // $fileName = $coiffeur->getFile();
+                // unlink("uploads/coiffeur/$fileName");
+            }
+            if($coiffeur->getSnap() !== null && $form['snap']->getData() !== null){
+                $coiffeurManager->supprSnap($coiffeur);
                 // $fileName = $coiffeur->getFile();
                 // unlink("uploads/coiffeur/$fileName");
             }

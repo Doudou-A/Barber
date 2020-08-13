@@ -5,7 +5,7 @@
 
 {% block body %}
 	<h1 class="h3 text-grey font-weight-bold text-center col-12 border-bottom p-2 m-0">{{titre}}</h1>
-	<div class="row bg-presentation">
+	<div class="row bg-presentation justify-content-around">
 		{% for presentation in aPresentation %}
 			{% if presentation.format == true %}
 				<div class="d-flex flex-column col-4 col-lg-3 hoverWB">
@@ -13,30 +13,40 @@
 						<div class="d-flex">
 							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white">&#128394;</a>
 							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')" class="position-absolute bg-white" class="position-absolute bg-white">&#128465;</a>
-						{% endif %}
-						<video id="example_video_1" class="video-js vjs-default-skin col-lg-2" controls preload="auto" {# width="640" height="264" #} poster="http://video-js.zencoder.com/oceans-clip.png">
-							<source src="{{ asset('uploads/presentation/' ~ presentation.file) }}" type='video/mp4'>
-							<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that
-								<a href="http://videojs.com/html5-video-support/" target="_blank">
-									supports HTML5 video</a>
-							</p>
-						</video>
-					{% else %}
-						<div class="d-flex flex-column col-4 col-lg-3 p-3 hoverWB zoomPresentation hiddenPresentation">
-							{% if is_granted('ROLE_ADMIN') %}
-								<div class="d-flex">
-									<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute ml-3 bg-white">&#128394;</a>
-									<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
-								</div>
-							{% endif %}
-							<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" alt="salon-de-coiffure" width="100%" height="auto" class="shadow">
 						</div>
 					{% endif %}
-				{% endfor %}
-				{% if is_granted('ROLE_ADMIN') %}
-					<div class=" p-2 rounded-circle text-center hiddenPresentation" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000">
-						<a class="m-auto display-1 bg-grey addBtn" href="/admin/presentation">+</a>
-					</div>
-				{% endif %}
+					<video id="example_video_1" class="video-js vjs-default-skin col-lg-2" controls preload="auto" {# width="640" height="264" #} poster="http://video-js.zencoder.com/oceans-clip.png">
+						<source src="{{ asset('uploads/presentation/' ~ presentation.file) }}" type='video/mp4'>
+						<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that
+							<a href="http://videojs.com/html5-video-support/" target="_blank">
+								supports HTML5 video
+							</a>
+						</p>
+					</video>
+				</div>
+			{% else %}
+				<div class="d-flex flex-column col-4 col-lg-3 p-3 hoverWB zoomPresentation hiddenPresentation">
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="d-flex">
+							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute ml-3 bg-white">&#128394;</a>
+							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
+						</div>
+					{% endif %}
+					<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" alt="salon-de-coiffure" width="100%" height="auto" class="shadow"/>
+				</div>
+			{% endif %}
+		{% endfor %}
+		{% if is_granted('ROLE_ADMIN') %}
+			{# <div class=" p-2 rounded-circle text-center hiddenPresentation" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000">
+				<a class="m-auto display-1 bg-grey addBtn" href="/admin/presentation">+</a>
+			</div> #}
+			<div class="bg-grey addBtn rounded p-3 hiddenPresentation d-flex flex-column col-4 col-lg-3">
+				<div class="rounded-circle text-center" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1000">
+					<a class="m-auto display-1 text-white" href="/admin/coiffeur">+</a>
+				</div>
+				<h4 class="font-SHR text-white text-center" class="my-3 text-grey font-SHR" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="1300">Ajouter</h4>
 			</div>
-		{% endblock %}
+		</div>
+	{% endif %}
+</div>{% endblock %}{% block javascripts %}
+<script language="javascript" src="/js/presentation.js"></script>{% endblock %}

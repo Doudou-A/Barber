@@ -20,7 +20,7 @@ class ReservationController extends AbstractController
 
         $user = $this->getUser();
         $reservations = $repoReservation->findByUser($user);
-        $now = $reservationManager->getNow();
+        $now = $reservationManager->getNow('Y/m');
 
         $dateRdv = [];
         foreach($reservations as $reservation){
@@ -31,7 +31,7 @@ class ReservationController extends AbstractController
         return $this->render('reservation/index.html.twig', [
             'aCoiffeur' => $aCoiffeur,
             'dateRdv' => $dateRdv,
-            'now' => $now,
+            // 'now' => $now,
         ]);
     }
 }

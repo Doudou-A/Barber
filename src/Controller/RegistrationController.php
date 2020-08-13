@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\UserType;
 use App\Form\RegistrationType;
+use App\Service\CommonManager;
+use App\Service\UserManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -17,7 +18,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/inscription", name="security_registration")
      */
-    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, MailerInterface $mailer)
+    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, MailerInterface $mailer, CommonManager $commonManager, UserManager $userManager)
     {
         $user = new User();
 
@@ -26,19 +27,21 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setDateCreated(new \DateTime());
-            $token = random_bytes(15);
-            $token = bin2hex($token);
-            $user->setToken($token);
-            $user->setNumberChange(0);
 
-            $hash = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($hash);
+            $user = $userManager->addUser($user);
+            // $user->setDateCreated(new \DateTime());
+            // $token = random_bytes(15);
+            // $token = bin2hex($token);
+            // $user->setToken($token);
+            // $user->setNumberChange(0);
 
-            $manager->persist($user);
-            $manager->flush();
+            // $hash = $encoder->encodePassword($user, $user->getPassword());
+            // $user->setPassword($hash);
 
-            return $this->redirectToRoute('home');
+            $commonManager->persist($user);
+            // $manager->flush();
+
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('security/registration.html.twig', [

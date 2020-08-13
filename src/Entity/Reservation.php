@@ -24,6 +24,7 @@ class Reservation
 
     /**
      * @ORM\ManyToOne(targetEntity=Coiffeur::class, inversedBy="reservations")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $coiffeur;
 

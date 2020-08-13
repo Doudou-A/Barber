@@ -16,9 +16,5 @@ class CoiffeurDispoController extends AbstractController
         $manager->delete($param);
 
         return $this->redirectToRoute('dashboard');
-
-        // return $this->render('coiffeur_dispo/index.html.twig', [
-        //     'controller_name' => 'CoiffeurDispoController',
-        // ]);
     }
 }

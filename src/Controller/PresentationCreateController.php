@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Presentation;
 use App\Form\PresentationType;
 use App\Service\CommonManager;
-use App\Service\PresentationManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -49,8 +48,8 @@ class PresentationCreateController extends AbstractController
                 $presentation->setFile($newFileName);
             }
 
-            $manager->persist($presentation);
-            $manager->flush();
+            $commonManager->persist($presentation);
+            // $manager->flush();
 
             $this->addFlash('success', 'Fichier AJouté/Modifié avec succès !');
 
