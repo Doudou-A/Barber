@@ -180,17 +180,17 @@ $(function () {
     $('body').on('click', '.dayPhoneRdv', function () {
         var divHourPhone = $(this).find(".hourPhoneRdv");
         var divdatePhone = $(this).find(".dataPhone");
-        $(this).removeClass('col-6').addClass('col-10').addClass('offset-1');
-        divdatePhone.addClass('dayPhoneRdvDisappear');
+        $(this).removeClass('col-6').removeClass('dayPhoneRdv').addClass('col-10').addClass('offset-1');
+        divdatePhone.addClass('dayPhoneRdvDisappear').addClass('btn').addClass('btn-primary').addClass('font-weight-bold');
         divHourPhone.removeClass('d-none').addClass('d-block');
     });
 });
 $(function () {
     $('body').on('click', '.dayPhoneRdvDisappear', function () {
         var divDayPhone = "#dayPhone_"+this.id;
-        var divHourPhone = $(this).find(".hourPhoneRdv");
+        var divHourPhone = $(divDayPhone).find(".hourPhoneRdv");
         console.log(divDayPhone);
-        divDayPhone.addClass('col-6').removeClass('col-10').removeClass('offset-1');
+        $(divDayPhone).removeClass('col-10').removeClass('offset-1').addClass('col-2').addClass('dayPhoneRdv');
         divHourPhone.removeClass('d-block').addClass('d-none');
     });
 });
