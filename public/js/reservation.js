@@ -152,7 +152,7 @@ $(function () {
 $(function () {
     $('body').on('click', '.adminReservationOpen', function () {
         var divRequest = $(this).find("#user_request");
-        $(this).addClass('col-6').addClass('offset-3').addClass('adminReservation').removeClass('adminReservationOpen');
+        $(this).removeClass('adminReservationOpen').removeClass('col-12').addClass('col-6').addClass('offset-3').addClass('adminReservation');
         $(divRequest).html('');
     });
 });
@@ -191,6 +191,7 @@ $(function () {
         var divHourPhone = $(divDayPhone).find(".hourPhoneRdv");
         console.log(divDayPhone);
         $(divDayPhone).removeClass('col-10').removeClass('offset-1').addClass('col-2').addClass('dayPhoneRdv');
+        $(this).removeClass('dayPhoneRdvDisappear').removeClass('btn').removeClass('btn-primary').removeClass('font-weight-bold');
         divHourPhone.removeClass('d-block').addClass('d-none');
     });
 });

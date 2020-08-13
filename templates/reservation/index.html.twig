@@ -5,10 +5,10 @@
 
 {% block body %}
 	{% if dateRdv != null %}
-		{% for rdv in dateRdv %}
+		{% for coiffeur, rdv in dateRdv %}
 			<div class="alert alert-primary">
 				Votre rendez-vous est le
-				{{rdv}}
+				{{rdv}} avec {{coiffeur}}
 			</div>
 		{% endfor %}
 	{% endif %}
