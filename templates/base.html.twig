@@ -51,7 +51,7 @@
 							<a class="nav-link js-scroll-trigger contactNavBar cursor">Contact</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger p-2 bg-blue" href="/reservation">Reservation</a>
+							<a class="nav-link js-scroll-trigger p-2 bg-blue" href="reservation">Reservation</a>
 						</li>
 						{% if app.user and not is_granted('ROLE_ADMIN') %}
 							<li class="nav-item">
@@ -60,7 +60,7 @@
 								</a>
 							</li>
 							<li class="nav-item d-flex flex-column">
-								<a class="nav-link js-scroll-trigger" href="/logout">
+								<a class="nav-link js-scroll-trigger" href="logout">
 									<img src="{{ asset('img/icons8-déconnexion-100.png') }}" height="38px" weight="auto"/>
 									{# Deconnexion #}
 								</a>
@@ -72,13 +72,13 @@
 								</a>
 							</li>
 							<li class="nav-item d-flex flex-column">
-								<a class="nav-link js-scroll-trigger p-3" href="/logout">
+								<a class="nav-link js-scroll-trigger p-3" href="logout">
 									<img src="{{ asset('img/icons8-déconnexion-100.png') }}" height="38px" weight="auto" class="mx-auto"/>
 								</a>
 							</li>
 						{% else %}
 							<li class="nav-item d-flex flex-column">
-								<a class="nav-link js-scroll-trigger p-3 d-flex align-items-center" href="/login">
+								<a class="nav-link js-scroll-trigger p-3 d-flex align-items-center" href="login">
 									<img src="{{ asset('img/icons8-utilisateur-96.png') }}" height="38px" weight="auto"/>
 									Compte
 								</a>
