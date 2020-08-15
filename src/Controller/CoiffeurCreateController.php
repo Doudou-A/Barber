@@ -54,7 +54,7 @@ class CoiffeurCreateController extends AbstractController
                         );
                     } catch (FileException $e) {
                         echo("move don't work");
-                        return false;
+                        die;
                         // ... handle exception if something happens during file upload
                     }
                     if($key == 0) $coiffeur->setFile($newFileName);
