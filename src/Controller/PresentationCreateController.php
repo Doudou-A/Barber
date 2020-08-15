@@ -28,9 +28,8 @@ class PresentationCreateController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if($presentation->getFile() !== null && $form['file']->getData() !== null){
-                $commonManager->supprFile($presentation, 'presentation');
-                // $fileName = $presentation->getFile();
-                // unlink("uploads/presentation/$fileName");
+                $fileName = $presentation->getFile();
+                unlink($this->getParameter("%kernel.project_dir%/public/public/uploads/presentation/$fileName"));
             }
             $file = $form['file']->getData();
 

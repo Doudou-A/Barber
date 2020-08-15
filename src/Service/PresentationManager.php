@@ -29,11 +29,11 @@ class PresentationManager
         $this->repository = $repository;
     }
 
-    public function delete(Presentation $presentation): void
-    {
-        $this->commonManager->supprFile($presentation, 'presentation');
-        $this->commonManager->remove($presentation);
-    }
+    // public function delete(Presentation $presentation): void
+    // {
+    //     $this->commonManager->supprFile($presentation, 'presentation');
+    //     $this->commonManager->remove($presentation);
+    // }
     
     // public function persist(Presentation $presentation): void
     // {

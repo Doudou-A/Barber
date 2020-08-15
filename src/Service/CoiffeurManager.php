@@ -31,8 +31,8 @@ class CoiffeurManager
 
     public function delete(Coiffeur $coiffeur): void
     {
-        $this->commonManager->supprFile($coiffeur, 'coiffeur');
-        $this->supprSnap($coiffeur);
+        // $this->commonManager->supprFile($coiffeur, 'coiffeur');
+        // $this->supprSnap($coiffeur);
         
         $this->commonManager->remove($coiffeur);
     }

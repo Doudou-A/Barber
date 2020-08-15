@@ -41,9 +41,9 @@ class CommonManager
         $this->manager->flush();
     }
     
-    public function supprFile($entity, $folder): void
-    {
-        $fileName = $entity->getFile();
-        unlink("../../public/uploads/$folder/$fileName");
-    }
+    // public function supprFile($entity, $folder): void
+    // {
+    //     $fileName = $entity->getFile();
+    //     unlink("../../public/uploads/$folder/$fileName");
+    // }
 }
