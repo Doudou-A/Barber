@@ -44,6 +44,6 @@ class CommonManager
     public function supprFile($entity, $folder): void
     {
         $fileName = $entity->getFile();
-        unlink("%kernel.project_dir%/public/uploads/$folder/$fileName");
+        unlink("../../public/uploads/$folder/$fileName");
     }
 }
