@@ -53,7 +53,7 @@ class CoiffeurCreateController extends AbstractController
                             $newFileName
                         );
                     } catch (FileException $e) {
-                        echo("move don't work");
+                        echo($e);
                         die;
                         // ... handle exception if something happens during file upload
                     }
