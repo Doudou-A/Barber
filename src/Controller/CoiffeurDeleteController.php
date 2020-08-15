@@ -14,10 +14,11 @@ class CoiffeurDeleteController extends AbstractController
      */
     public function index(Coiffeur $coiffeur, CoiffeurManager $coiffeurManager)
     {
+        $path = $this->getParameter('coiffeursImg_directory');
         $fileName = $coiffeur->getFile();
-        unlink($this->getParameter('%kernel.project_dir%/public/uploads/coiffeurs/$fileName'));
+        unlink($path.'/'.$fileName);
         $fileName = $coiffeur->getSnap();
-        unlink($this->getParameter('%kernel.project_dir%/public/uploads/coiffeurs/$fileName'));
+        unlink($path.'/'.$fileName);
         $coiffeurManager->delete($coiffeur);
         
         return $this->redirectToRoute('home');
