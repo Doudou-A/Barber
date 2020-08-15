@@ -54,6 +54,6 @@ class ReservationCreateController extends AbstractController
         $mailer->send($message); */
 
         $this->addFlash('success', "Votre réservation est le $dateTime avec $username");
-        return $this->redirect('/');
+        return $this->redirect('/index.php');
     }
 }

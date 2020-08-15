@@ -64,7 +64,7 @@ class CoiffeurCreateController extends AbstractController
 
             $this->addFlash('success', 'Coiffeur AJouté/Modifié avec succès !');
 
-            return $this->redirect('/');
+            return $this->redirect('/index.php');
         }
         return $this->render('coiffeur/coiffeurCreate.html.twig', [
             'form' => $form->createView(),
