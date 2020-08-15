@@ -28,7 +28,7 @@ $(function () {
             var dateId = this.id;
             $.ajax({
                 type: 'POST',
-                url: '/admin/reservation/delete/one/'+dateId,
+                url: '/index.php/admin/reservation/delete/one/'+dateId,
                 timeout: 3000,
                 success: function (data) {
                     location.reload();
@@ -50,7 +50,7 @@ $(function () {
             var dateId = this.id;
             $.ajax({
                 type: 'POST',
-                url: '/coiffeur/indispo/'+dateId,
+                url: '/index.php/coiffeur/indispo/'+dateId,
                 timeout: 3000,
                 success: function (data) {
                     location.reload();
@@ -72,7 +72,7 @@ $(function () {
             var dateId = this.id;
             $.ajax({
                 type: 'POST',
-                url: '/coiffeur/dispo/'+dateId,
+                url: '/index.php/coiffeur/dispo/'+dateId,
                 timeout: 3000,
                 success: function (data) {
                     location.reload();
@@ -113,7 +113,7 @@ $(function () {
         var titre = "#titreReservation";
         $.ajax({
             type: 'GET',
-            url: '/Reservation-Show/' + coiffeurId,
+            url: '/index.php/Reservation-Show/' + coiffeurId,
             timeout: 3000,
             success: function (data) {
                 console.log(divRequest);
@@ -135,7 +135,7 @@ $(function () {
         $(this).removeClass('col-6').removeClass('offset-3').removeClass('adminReservation').addClass('adminReservationOpen');
         $.ajax({
             type: 'GET',
-            url: '/admin/reservation/user/' + dataUrl,
+            url: '/index.php/admin/reservation/user/' + dataUrl,
             timeout: 3000,
             success: function (data) {
                 console.log(data);
