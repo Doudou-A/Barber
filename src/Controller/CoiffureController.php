@@ -15,7 +15,7 @@ class CoiffureController extends AbstractController
     {
         $aPresentation = $repo->findByType(false);
 
-        return $this->render('presentation/PresentationShow.html.twig', [
+        return $this->render('presentation/presentationShow.html.twig', [
             'aPresentation' => $aPresentation,
             'page' => 'coiffures',
             'titre' => 'Les Coiffures',
