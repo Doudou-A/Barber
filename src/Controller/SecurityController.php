@@ -58,7 +58,7 @@ class SecurityController extends AbstractController
                 ->subject('Mot de passe oublié')
                 ->text(
                     'Voici le lien pour modifier votre mot de passe : </br>
-            http://localhost:8000/security/forgotPassword/' . $user->getToken() . '',
+            https://localhost:8000/security/forgotPassword/' . $user->getToken() . '',
                     'text/html'
                 );
 
