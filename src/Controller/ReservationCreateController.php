@@ -26,7 +26,7 @@ class ReservationCreateController extends AbstractController
         $username = $coiffeur->getUsername();
 
         $date = DateTime::createFromFormat('Y-m-d H:i', $form["date"]);
-        $dateTime = $date->format('Y/m/d à H:i');
+        $dateTime = $date->format('d/m/Y à H:i');
 
         $allReservation = $repoReservation->findByCoiffeur($coiffeur);
         $aReservation = [];
