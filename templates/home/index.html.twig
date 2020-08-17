@@ -85,10 +85,10 @@
 				{% endif %}
 			</div>
 			{# <div class="row">
-				<div class="col-lg-8 mx-auto text-center">
-					<p class="large text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-				</div>
-			</div> #}
+							<div class="col-lg-8 mx-auto text-center">
+								<p class="large text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+							</div>
+						</div> #}
 		</div>
 	</section>
 	<section class="page-section bg-fonce target" id="contact">
@@ -97,20 +97,25 @@
 			<div>&nbsp;</div>
 			<div id="dateTime" class="col-12 text-center text-white mt-4" style="font-size:40px;"></div>
 			<div id="phoneNumber" class="col-8 mx-auto rounded iphone-notif p-2 mt-3" data-aos="fade-left">
-				<a class="d-flex hover-white  text-grey" href="tel:0622391320">
+				<a class="d-flex hover-white align-items-center text-grey" href="tel:0622391320">
 					<img src="img/appel-icone.png" alt="workshop-barbershop-icone" width="20px" height="20px">
 					<div class=" p-2 mt-20px font-weight-bold" style="font-size:12px;">06 22 39 13 20</div>
 				</a>
 			</div>
 			<div id="address" class="col-8 mx-auto rounded iphone-notif p-2 mt-2" data-aos="fade-left" data-aos-delay="500">
-				<a class="d-flex hover-white  text-grey" href="http://www.google.com/maps/dir//workshop-barbershop/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x47f4e994026d8173:0x3da2b1d6dad41eb8?sa=X">
+				<a class="d-flex hover-white align-items-center text-grey" href="http://www.google.com/maps/dir//workshop-barbershop/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x47f4e994026d8173:0x3da2b1d6dad41eb8?sa=X">
 					<img src="img/adresse-icone.png" alt="workshop-barbershop-icone" width="20px" height="20px">
 					<div class=" p-2 mt-auto font-weight-bold">85 Boulevard Emile Zola, 69600 Oullins</div>
 				</a>
 			</div>
-			<div id"socialnetworks" class="col-8 mx-auto rounded iphone-notif p-2 mt-2" data-aos="fade-left" data-aos-delay="700">
-				<div class="d-flex">
-					<div class=" p-2 mt-auto">Afficher Reseaux sociaux</div>
+			<div id"socialnetworks" class="col-8 mx-auto rounded iphone-notification p-2 mt-2" data-aos="fade-left" data-aos-delay="700">
+				<div class="d-flex justify-content-around">
+					<a href="">
+						<img src="{{ asset('img/insta-logo.jpg') }}" alt="insta-workshop-barbershop" width="20px" height="20px">
+					</a>
+					<div id="coiffeurCross_snap-wb" class="col-1 offset-8 rounded-circle bg-cross position-absolute p-0 mt-2 d-none cursor coiffeurCross">&#8553;</div>
+					<img id="snapchatImage_snap-wb" src="{{ asset('img/snap-wb.png') }}" alt="snap-barber" class=" mx-auto d-none" align="center" width="140px" height="14 0px"/>
+					<img id="snap-wb"src="{{ asset('img/snap-logo.png') }}" class="cursor snapIcone" alt="snap-workshop-barbershop" width="20px" height="20px">
 				</div>
 			</div>
 			<div style="height:200px;">&nbsp;</div>
@@ -123,8 +128,7 @@
 			</div>
 		</div>
 	</footer>
-	<script>
-</script>
+	<script></script>
 {% endblock %}
 
 {% block javascripts %}

@@ -11055,6 +11055,15 @@ header.wrapper {
   transition-delay: 0.4s;
 }
 
+.iphone-notification {
+  background-color: rgba(255, 255, 255, 0.692);
+  box-shadow: 1px;
+  font-size: 8px;
+  transition-property: background-color;
+  transition-duration: 1s;
+  transition-delay: 0.4s;
+}
+
 .iphone-notif:hover {
   background-color: #3a71b1;
   cursor: pointer;

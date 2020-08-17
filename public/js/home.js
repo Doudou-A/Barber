@@ -43,7 +43,7 @@ $(function () {
 //ClickHome
 setTimeout(function () {
     $(".clickHome").addClass('d-none');
-}, 7500);
+}, 10000);
 
 //Apparition Snap
 $(function () {
