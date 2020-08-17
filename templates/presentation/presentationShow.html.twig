@@ -28,8 +28,8 @@
 				<div class="d-flex flex-column col-4 col-lg-3 p-3 hoverWB zoomPresentation hiddenPresentation">
 					{% if is_granted('ROLE_ADMIN') %}
 						<div class="d-flex">
-							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute ml-3 bg-white offset-3">&#128394;</a>
-							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white offset-4" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
+							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute ml-3 bg-white">&#128394;</a>
+							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white offset-1" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
 						</div>
 					{% endif %}
 					<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" alt="salon-de-coiffure" width="50%" height="75%" class="shadow mx-auto"/>
