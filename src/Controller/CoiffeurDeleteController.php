@@ -16,11 +16,15 @@ class CoiffeurDeleteController extends AbstractController
     {
         $path = $this->getParameter('coiffeursImg_directory');
         $fileName = $coiffeur->getFile();
-        $completPath = $path.'/'.$fileName;
-        unlink($completPath);
-        $fileName = $coiffeur->getSnap();
-        $completPath = $path.'/'.$fileName;
-        unlink($completPath);
+        if($fileName){
+            $completPath = $path.'/'.$fileName;
+            unlink($completPath);
+        }
+        $fileNameSnap = $coiffeur->getSnap();
+        if($fileNameSnap){
+            $completPath = $path.'/'.$fileNameSnap;
+            unlink($completPath);
+        }
         $coiffeurManager->delete($coiffeur);
         
         return $this->redirectToRoute('home');
