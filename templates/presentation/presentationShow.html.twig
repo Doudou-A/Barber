@@ -8,14 +8,14 @@
 	<div class="row bg-presentation justify-content-around">
 		{% for presentation in aPresentation %}
 			{% if presentation.format == true %}
-				<div class="d-flex flex-column col-4 col-lg-3 hoverWB">
+				<div class="d-flex flex-column col-4 col-lg-3 hoverWB hiddenPresentation">
 					{% if is_granted('ROLE_ADMIN') %}
 						<div class="d-flex">
 							<a href="{{ path('presentation_edit', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white">&#128394;</a>
 							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')" class="position-absolute bg-white" class="position-absolute bg-white">&#128465;</a>
 						</div>
 					{% endif %}
-					<video id="example_video_1" class="video-js vjs-default-skin col-lg-2" controls preload="auto" {# width="640" height="264" #} poster="http://video-js.zencoder.com/oceans-clip.png">
+					<video id="example_video_1" class="video-js vjs-default-skin mx-auto" controls preload="auto" {# width="640" height="264" #} poster="http://video-js.zencoder.com/oceans-clip.png" width="50%" height="75%">
 						<source src="{{ asset('uploads/presentation/' ~ presentation.file) }}" type='video/mp4'>
 						<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that
 							<a href="http://videojs.com/html5-video-support/" target="_blank">
@@ -32,7 +32,7 @@
 							<a href="{{ path('presentation_delete', {'id': presentation.id, 'page': page}) }}" class="position-absolute bg-white" onclick="return confirm('Etes-vous sur de vouloir la supprimer ?')">&#128465;</a>
 						</div>
 					{% endif %}
-					<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" alt="salon-de-coiffure" width="100%" height="auto" class="shadow"/>
+					<img src="{{ asset('uploads/presentation/' ~ presentation.file) }}" alt="salon-de-coiffure" width="50%" height="75%" class="shadow mx-auto"/>
 				</div>
 			{% endif %}
 		{% endfor %}
