@@ -114,7 +114,7 @@ $(function () {
     $('body').on('click', '.adminReservation', function () {
         var dataUrl = this.id;
         var divRequest = $(this).find("#user_request");
-        $(this).removeClass('col-6').removeClass('offset-3').removeClass('adminReservation').addClass('adminReservationOpen');
+        $(this).removeClass('col-6').removeClass('offset-3').removeClass('adminReservation').addClass('adminReservationOpen').addClass('col-12');
         $.ajax({
             type: 'GET',
             url: '/index.php/admin/reservation/user/' + dataUrl,
