@@ -87,24 +87,6 @@ $(function () {
     });
 });
 
-/* $(function () {
-    $(".formAdminUser").submit(function (event) {
-        event.preventDefault(); // Empêcher le rechargement de la page.
-        var post_url = $(this).attr("action"); // get form action url
-        var request_method = $(this).attr("method"); // get form GET/POST method
-        var form_data = $(this).serialize(); // Encode form elements for submission
-        var divRequest = "#user_request";
-        $.ajax({
-            url: post_url, type: request_method, data: form_data, //
-            success: function (data) {
-                console.log(data);
-                $(divRequest).html(data.html);
-                /* $(this).trigger('click'); 
-            }
-        });
-    });
-}); */
-
 //request reservation
 $(function () {
     $('body').on('click', '.coiffeurReservation', function () {

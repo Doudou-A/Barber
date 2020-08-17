@@ -25,7 +25,7 @@
   background-color: #ffffff;
   border: 0;
 }
-/* ADO */
+
 header.wrapper {
   background: url("img/barber_background.png");
   color: #eee;
@@ -227,7 +227,7 @@ header.wrapper {
 /* html, body {
     max-width: 100%;
     overflow-x: hidden;
-  } */
+  } 
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
   .begin {

@@ -16,7 +16,7 @@
 							{{dates.dateFr}}
 						</div>
 						{% for rdv, hour in dates.hour %}
-							<form action="/reservation/create" enctype="multipart/form-data" class="formReservation" method="POST">
+							<form action="/index.php/reservation/create" enctype="multipart/form-data" class="formReservation" method="POST">
 								<div class="row col-12 p-0 m-0">
 									<div style="display: none;">
 										<input class="col-lg-12 p-2 animated border" value='{{coiffeur.id}}' type="number" name="coiffeur" required="required"/>
@@ -78,7 +78,7 @@
 						{{dates.dateFr}}
 					</div>
 					{% for rdv, hour in dates.hour %}
-						<form id="form" action="/reservation/create" enctype="multipart/form-data" class="formReservation col-3 p-0 m-1" method="POST">
+						<form id="form" action="/index.php/reservation/create" enctype="multipart/form-data" class="formReservation col-3 p-0 m-1" method="POST">
 							<div class="hourPhoneRdv row col-12 p-0 m-1 d-none">
 								<div style="display: none;">
 									<input class="col-lg-12 p-2 animated border" value='{{coiffeur.id}}' type="number" name="coiffeur" required="required"/>
