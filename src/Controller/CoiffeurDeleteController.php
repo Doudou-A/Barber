@@ -20,7 +20,7 @@ class CoiffeurDeleteController extends AbstractController
         unlink($completPath);
         $fileName = $coiffeur->getSnap();
         $completPath = $path.'/'.$fileName;
-        unlink($path.'/'.$fileName);
+        unlink($completPath);
         $coiffeurManager->delete($coiffeur);
         
         return $this->redirectToRoute('home');

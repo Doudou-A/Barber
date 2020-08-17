@@ -28,13 +28,16 @@ class CoiffeurCreateController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $path = $this->getParameter('coiffeursImg_directory');
             if($coiffeur->getFile() !== null && $form['file']->getData() !== null){
                 $fileName = $coiffeur->getFile();
-                unlink($this->getParameter("%kernel.project_dir%/public/public/uploads/coiffeurs/$fileName"));
+                $completPath = $path.'/'.$fileName;
+                unlink($completPath);
             }
             if($coiffeur->getSnap() !== null && $form['snap']->getData() !== null){
                 $fileName = $coiffeur->getFile();
-                unlink($this->getParameter("%kernel.project_dir%/public/public/uploads/coiffeurs/$fileName"));
+                $completPath = $path.'/'.$fileName;
+                unlink($completPath);
             }
             $fileCoiffeur = $form['file']->getData();
             $fileSnap = $form['snap']->getData();

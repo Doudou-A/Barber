@@ -17,9 +17,9 @@ class PresentationCreateController extends AbstractController
      * @Route("/admin/presentation", name="presentation")
      * @Route("/admin/{id}/presentation/{page}", name="presentation_edit")
      */
-    public function presentationCreate(Presentation $presentation=null, $page=null, Request $request, EntityManagerInterface $manager, CommonManager $commonManager)
+    public function presentationCreate(Presentation $presentation = null, $page = null, Request $request, EntityManagerInterface $manager, CommonManager $commonManager)
     {
-        if(!$presentation){
+        if (!$presentation) {
             $presentation = new Presentation;
         }
 
@@ -27,9 +27,11 @@ class PresentationCreateController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if($presentation->getFile() !== null && $form['file']->getData() !== null){
+            if ($presentation->getFile() !== null && $form['file']->getData() !== null) {
+                $path = $this->getParameter('presentationImg_directory');
                 $fileName = $presentation->getFile();
-                unlink($this->getParameter("%kernel.project_dir%/public/public/uploads/presentation/$fileName"));
+                $completPath = $path . '/' . $fileName;
+                unlink($completPath);
             }
             $file = $form['file']->getData();
 
@@ -52,8 +54,8 @@ class PresentationCreateController extends AbstractController
 
             $this->addFlash('success', 'Fichier AJouté/Modifié avec succès !');
 
-            if($page == 'salon') return $this->redirectToRoute('salon');
-            elseif($page == 'coiffures') return $this->redirectToRoute('coiffures');
+            if ($page == 'salon') return $this->redirectToRoute('salon');
+            elseif ($page == 'coiffures') return $this->redirectToRoute('coiffures');
             else return $this->redirectToRoute('presentation');
         }
         return $this->render('presentation/presentationCreate.html.twig', [
@@ -63,5 +65,4 @@ class PresentationCreateController extends AbstractController
             'presentation' => $presentation,
         ]);
     }
-
 }
