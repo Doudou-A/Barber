@@ -43,7 +43,7 @@ class ReservationManager
                 $date = date('l d F');
                 $dateRequest = date('Y-m-d');
 
-                setlocale(LC_TIME, "fr_FR");
+                setlocale(LC_ALL, "fr_FR");
                 $dateFr = strftime("%A %d %B", strtotime($date));
 
                 $hour = new Datetime();
