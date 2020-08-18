@@ -120,7 +120,19 @@
 												<div class="bg-danger rounded text-white border font-weight-normal cursor-forbidden mt-2" style="padding:3px 4px;">{{hour}}</div>
 											{% endif %}
 										{% else %}
-											<input type="submit" name="valide" value="{{hour}}" class="col-12 m-1 hoverBgBlue"/>
+											{% if is_granted('ROLE_ADMIN') %}
+												<div id="{{rdv}}" class="col-6 offset-3 hoverBgBlue btn font-weight-bold border-white text-white adminCreateReservation">{{hour}}
+													<div class="d-none adminFormCreateDisplay row position-relative flex-column">
+														<input class="col-lg-10 offset-lg-1 m-1 p-2 animated border" placeholder="Nom" type="text" name="name"/>
+														<input
+														class="col-lg-10 offset-lg-1 m-1 p-2 animated border" placeholder="Prenom" type="text" name="firstName"/>
+														{# <input type="col-lg-10 offset-lg-1 m-1 p-2 animated border" name="hour" value="{{hour}}" class="col-6 offset-3 hoverBgBlue"/> #}
+														<input type="submit" name="valide" value="Reserver" class="col-6 offset-3 hoverBgBlue"/>
+													</div>
+												</div>
+											{% else %}
+												<input type="submit" name="valide" value="{{hour}}" class="col-12 m-1 hoverBgBlue"/>
+											{% endif %}
 										{% endif %}
 									</div>
 								</form>
