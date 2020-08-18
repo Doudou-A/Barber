@@ -1,3 +1,4 @@
+{% set continue = false %}
 <div class="col-lg-10 offset-1 bg-fonce d-none d-md-block d-lg-block">
 	<div class="col-6 offset-3 text-white text-center font-weight-bold border-bottom mb-2">Planning
 		<br>
@@ -5,7 +6,6 @@
 	<div class="row">
 		<div class="col-1 d-flex align-items-center"><img src="{{ asset('img/icons8-chevron-gauche-96.png') }}" alt="" id="left" class="cursor"/></div>
 		<div id="block" class="col-lg-10 d-flex horizontal-scrollable bg-fonce font-weight-bold text-white p-2">
-			{% set continue = false %}
 			{% for dates in aDate %}
 				{% if "Dimanche" in dates.dateFr or "Lundi" in dates.dateFr or (today == dates.dateData and lastHour < now ) %}
 					{% set continue = true %}
@@ -83,7 +83,6 @@
 			<br>
 			{{coiffeur.username}}</div>
 		<div id="block" class="col-12 d-flex flex-wrap justify-content-around bg-fonce font-weight-bold text-grey p-2">
-			{% set continue = false %}
 			{% for dates in aDate %}
 				{% if "Dimanche" in dates.dateFr or "Lundi" in dates.dateFr or (today == dates.dateData and lastHour < now ) %}
 					{% set continue = true %}
