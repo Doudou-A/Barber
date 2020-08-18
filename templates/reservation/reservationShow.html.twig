@@ -7,7 +7,7 @@
 		<div class="col-1 d-flex align-items-center"><img src="{{ asset('img/icons8-chevron-gauche-96.png') }}" alt="" id="left" class="cursor"/></div>
 		<div id="block" class="col-lg-10 d-flex horizontal-scrollable bg-fonce font-weight-bold text-white p-2">
 			{% for dates in aDate %}
-				{% if "Dimanche" in dates.dateFr or "Lundi" in dates.dateFr or (today == dates.dateData and lastHour < now ) %}
+				{% if "dimanche" in dates.dateFr or "lundi" in dates.dateFr or (today == dates.dateData and lastHour < now ) %}
 					{% set continue = true %}
 				{% endif %}
 				{% if not continue %}
