@@ -120,7 +120,7 @@
 											{% endif %}
 										{% else %}
 											{% if is_granted('ROLE_ADMIN') %}
-												<div id="{{rdv}}" class="col-6 offset-3 hoverBgBlue btn font-weight-bold border-white text-white adminCreateReservation">{{hour}}
+												<div id="{{rdv}}" class="hoverBgBlue btn-dark rounded font-weight-bold border-white text-white p-2 m-1 adminCreateReservation">{{hour}}
 													<div class="d-none adminFormCreateDisplay row position-relative flex-column">
 														<input class="col-lg-10 offset-lg-1 m-1 p-2 animated border" placeholder="Nom" type="text" name="name"/>
 														<input
