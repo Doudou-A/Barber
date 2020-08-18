@@ -3,28 +3,44 @@
 namespace App\Controller;
 
 use DateTime;
+use App\Entity\User;
 use Symfony\Component\Mime\Email;
+use App\Service\ReservationManager;
 use App\Repository\CoiffeurRepository;
 use App\Repository\ReservationRepository;
-use App\Service\ReservationManager;
+use App\Service\CommonManager;
+use App\Service\UserManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ReservationCreateController extends AbstractController
+class ReservationCreateAdminController extends AbstractController
 {
     /**
-     * @Route("/reservation/create", name="reservation_create")
+     * @Route("/reservation/create/admin", name="reservation_create_admin")
      */
-    public function reservationCreate(Request $request, CoiffeurRepository $repo, ReservationManager $reservationManager, ReservationRepository $repoReservation, MailerInterface $mailer)
+    public function reservationCreateAdmin(Request $request, CoiffeurRepository $repo, ReservationManager $reservationManager, ReservationRepository $repoReservation, UserManager $userManager,CommonManager $commonManager, MailerInterface $mailer)
     {
-        $user = $this->getUser();
-        
         $form = $request->request->all();
+
+        $user = new User();
+        $mail = random_bytes(5);
+        $user->setEmail(bin2hex($mail));
+        $user->setPassword("password");
+        $user->setName($form['name']);
+        $user->setFirstName($form['firstName']);
+        $user->setNumber(0000000000);
+        
+        $userManager->addUser($user);
+        $commonManager->persist($user);
+
         $coiffeur = $repo->find($form["coiffeur"]);
         $username = $coiffeur->getUsername();
-        
+
+        // $formDate = explode("_", $form["date"]); //ADO Final 
+        // $date = DateTime::createFromFormat('Y-m-d H:i', $formDate[0]."_".$formDate[1]);
+
         $date = DateTime::createFromFormat('Y-m-d H:i', $form["date"]);
         $dateTime = $date->format('d/m/Y à H:i');
 

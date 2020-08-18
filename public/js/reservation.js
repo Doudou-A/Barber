@@ -177,3 +177,14 @@ $(function () {
         divHourPhone.removeClass('d-block').addClass('d-none');
     });
 });
+
+//Admin Create reservation
+$(function () {
+    $('body').on('click', '.adminCreateReservation', function () {
+        event.preventDefault();
+        var formAdminReser = $(this).find(".adminFormCreateDisplay");
+        console.log(formAdminReser);
+        $(this).removeClass("adminCreateReservation");
+        $(formAdminReser).removeClass("d-none");
+    });
+});
