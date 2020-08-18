@@ -37,7 +37,7 @@ class ReservationShowController extends AbstractController
         $aDate = $reservationManager->getADate();
         
         $indispos = $indispoManager->getAIndispo($coiffeur);
-        
+
         return new JsonResponse([
             'html' => $this->renderView('reservation/reservationShow.html.twig', [
                 'coiffeur' => $coiffeur,
