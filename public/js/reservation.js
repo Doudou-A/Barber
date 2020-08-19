@@ -89,7 +89,9 @@ $(function () {
 
 //request reservation
 $(function () {
+    $('#ajax-loading').hide();
     $('body').on('click', '.coiffeurReservation', function () {
+        $('#ajax-loading').show();
         var coiffeurId = this.id;
         var divRequest = "#coiffeur_request";
         var titre = "#titreReservation";
@@ -101,6 +103,8 @@ $(function () {
                 console.log(divRequest);
                 $(divRequest).html(data.html);
                 $(titre).html("Choisir la date de réservation");
+                $('#ajax-loading').hide();
+                $('html,body').animate({ scrollTop: $("#coiffeur_request").offset().top - 100 }, 'slow');
             },
             error: function () {
                 alert('La requête n\'a pas abouti');
