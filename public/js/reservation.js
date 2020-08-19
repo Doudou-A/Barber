@@ -104,7 +104,7 @@ $(function () {
                 $(divRequest).html(data.html);
                 $(titre).html("Choisir la date de réservation");
                 $('#ajax-loading').hide();
-                $('html,body').animate({ scrollTop: $("#coiffeur_request").offset().top - 100 }, 'slow');
+                $('html,body').animate({ scrollTop: $("#coiffeur_request").offset().top - 150 }, 'slow');
             },
             error: function () {
                 alert('La requête n\'a pas abouti');
