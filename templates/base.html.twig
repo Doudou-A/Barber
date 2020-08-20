@@ -82,6 +82,7 @@
 	</head>
 	<body
 		class="vh-100">
+		<div id="loading-bg" class="bg-white w-100 h-100 position-absolute" style="z-index:10;"></div>
 		<!-- Navigation-->
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success flash">{{ message }}</div>

@@ -15,21 +15,26 @@ setTimeout(function () {
 //NavBar d-none
 $(function () {
     var presentation = $('#presentation');
-    if(!presentation.length){
+    if (!presentation.length) {
         $('.presentationNavBar').addClass('d-none');
     }
 });
 
 $(function () {
     var coiffeur = $('#team');
-    if(!coiffeur.length){
+    if (!coiffeur.length) {
         $('.coiffeurNavBar').addClass('d-none');
     }
 });
 
 $(function () {
     var contact = $('#contact');
-    if(!contact.length){
+    if (!contact.length) {
         $('.contactNavBar').addClass('d-none');
     }
+});
+
+//bg loading
+$(function () {
+    $('#loading-bg').hide();
 });
