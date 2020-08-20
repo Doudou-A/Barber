@@ -11160,7 +11160,7 @@ header.wrapper {
 }
 
 .hoverBgBlue:hover {
-  background-color: #3a71b1;
+  background-color: #3a71b1 !important;
   border: none;
   color: white;
   border: 1px solid white;

@@ -55,7 +55,7 @@ class ReservationManager
                 $dateRequest = date('Y-m-d');
 
                 setlocale(LC_TIME, "fr_FR.utf8");
-                $dateFr = strftime("%A %d %B", strtotime($date));
+                $dateFr = strftime("%a %d %B", strtotime($date));
 
                 $hour = new Datetime();
                 $minutes_to_add = 30;
@@ -80,7 +80,7 @@ class ReservationManager
             $date = date('l d F', strtotime($date . '+1 day'));
             $dateRequest = date('Y-m-d', strtotime($dateRequest . '+1 day'));
 
-            $dateFr = strftime("%A %d %B", strtotime($date));
+            $dateFr = strftime("%a %d %B", strtotime($date));
 
             $aHour = [];
             $hour->setTime(10, 00);

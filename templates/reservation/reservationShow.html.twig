@@ -9,7 +9,7 @@
 	</div>
 	<div class="row">
 		{# <div class="col-1 d-flex align-items-center"><img src="{{ asset('img/icons8-chevron-gauche-96.png') }}" alt="" id="left" class="cursor"/></div> #}
-		<div id="block" class="col-lg-10 col-sm-12 d-flex horizontal-scrollable bg-fonce font-weight-bold text-white p-2">
+		<div id="block" class="col-lg-10 offset-lg-1 col-sm-12 d-flex horizontal-scrollable bg-fonce font-weight-bold text-white p-2">
 			{% for dates in aDate %}
 				{% if "dimanche" in dates.dateFr or "lundi" in dates.dateFr or (today == dates.dateData and lastHour < now ) %}
 					{% set continue = true %}
@@ -25,7 +25,7 @@
 								{% else %}
 									<form action="/index.php/reservation/create" enctype="multipart/form-data" class="formReservation" method="POST">
 									{% endif %}
-									<div class="row col-12 p-0 m-0">
+									<div class="row col-12 p-0 mt-1 mb-1 mx-0 justify-content-center">
 										<div style="display: none;">
 											<input class="col-lg-12 p-2 animated border" value='{{coiffeur.id}}' type="number" name="coiffeur" required="required"/>
 										</div>
@@ -35,29 +35,29 @@
 										{% if today == dates.dateData and timeReservation > hour and is_granted('ROLE_ADMIN') == false %}
 											<div class="d-none">{{hour}}</div>
 										{% elseif dates.dateData in indispos %}
-											<div class="col-6 offset-3 input cursor-forbidden" style="text-decoration: line-through; padding: 3px 6px; border-color: rgb(118, 118, 118), rgb(195, 195, 195);">{{hour}}</div>
+											<div class="col-8 offset-2 input cursor-forbidden" style="text-decoration: line-through; padding: 3px 6px; border-color: rgb(118, 118, 118), rgb(195, 195, 195);">{{hour}}</div>
 										{% elseif rdv in reservations %}
 											{% if is_granted('ROLE_ADMIN') %}
-												<div id="{{coiffeur.id}}_{{rdv}}" class="col-6 offset-3 bg-primary rounded text-white border font-weight-normal adminReservation">{{hour}}
+												<div id="{{coiffeur.id}}_{{rdv}}" class="col-8 offset-2 p-1 m-0 bg-primary rounded text-white border font-weight-normal adminReservation">{{hour}}
 													<div id="user_request" class='d-flex flex-column'></div>
-													<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation">Suppr</div>
+													<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation d-none">Suppr</div>
 												</div>
 											{% else %}
-												<div class="col-6 offset-3 m-1 bg-danger rounded text-white border font-weight-normal cursor-forbidden">{{hour}}</div>
+												<div class="col-8 offset-2 p-1 m-0 bg-danger rounded text-white border font-weight-normal cursor-forbidden">{{hour}}</div>
 											{% endif %}
 										{% else %}
 											{% if is_granted('ROLE_ADMIN') %}
-												<div id="{{rdv}}" class="col-6 offset-3 hoverBgBlue btn font-weight-bold border-white text-white adminCreateReservation">{{hour}}
-													<div class="d-none adminFormCreateDisplay row position-relative flex-column">
-														<input class="col-lg-10 offset-lg-1 m-1 p-2 animated border" placeholder="Nom" type="text" name="name"/>
+												<div id="{{rdv}}" class="col-8 offset-2 p-1 m-0 hoverBgBlue btn font-weight-bold border-white text-white adminCreateReservation">{{hour}}
+													<div class="d-none adminFormCreateDisplay row flex-column">
+														<input class="m-1 p-2 animated border" placeholder="Nom" type="text" name="name"/>
 														<input
-														class="col-lg-10 offset-lg-1 m-1 p-2 animated border" placeholder="Prenom" type="text" name="firstName"/>
+														class="m-1 p-2 animated border" placeholder="Prenom" type="text" name="firstName"/>
 														{# <input type="col-lg-10 offset-lg-1 m-1 p-2 animated border" name="hour" value="{{hour}}" class="col-6 offset-3 hoverBgBlue"/> #}
-														<input type="submit" name="valide" value="Reserver" class="col-6 offset-3 hoverBgBlue"/>
+														<input type="submit" name="valide" value="Reserver" class="col-8 offset-2 hoverBgBlue"/>
 													</div>
 												</div>
 											{% else %}
-												<input type="submit" name="valide" value="{{hour}}" class="col-6 offset-3 hoverBgBlue m-1 border rounded bg-white"/>
+												<input type="submit" name="valide" value="{{hour}}" class="col-8 offset-2 m-0 hoverBgBlue p-1 border rounded bg-white"/>
 											{% endif %}
 										{% endif %}
 									</div>
@@ -80,78 +80,3 @@
 			{# <div id="right" class="col-1 d-flex align-items-center mh-auto text-center cursor"><img src="{{ asset('img/icons8-chevron-droit-96.png') }}" alt="" weight="100" height="auto"/></div> #}
 		</div>
 	</div>
-
-	{# PhoneView #}
-	{# <div class="bg-fonce d-block d-md-none d-lg-none">
-			<div class="col-6 offset-3 text-white text-center font-weight-bold">Planning
-				<br>
-				{{coiffeur.username}}</div>
-			<div id="block" class="col-12 d-flex flex-wrap justify-content-around bg-fonce font-weight-bold text-grey p-2">
-				{% for dates in aDate %}
-					{% if "Dimanche" in dates.dateFr or "Lundi" in dates.dateFr or (today == dates.dateData and lastHour < now ) %}
-						{% set continue = true %}
-					{% endif %}
-					{% if not continue %}
-						<div id="dayPhone_{{dates.dateData}}" class="col-3 m-2 d-flex flex-wrap justify-content-around border rounded bg-white text-center p-0 dayPhoneRdv">
-							<div id="{{dates.dateData}}" class="col-12 dataPhone">
-								{{dates.dateFr}}
-							</div>
-							{% for rdv, hour in dates.hour %}
-								{% if is_granted('ROLE_ADMIN') %}
-									<form action="/index.php/reservation/create/admin" enctype="multipart/form-data" class="formReservation" method="POST">
-									{% else %}
-										<form action="/index.php/reservation/create" enctype="multipart/form-data" class="formReservation" method="POST">
-										{% endif %}
-										<div class="hourPhoneRdv row col-12 p-0 m-1 d-none">
-											<div style="display: none;">
-												<input class="col-lg-12 p-2 animated border" value='{{coiffeur.id}}' type="number" name="coiffeur" required="required"/>
-											</div>
-											<div style="display: none;">
-												<input class="col-lg-12 p-2 animated border" value="{{rdv}}" type="text" name="date"/>
-											</div>
-											{% if today == dates.dateData and timeReservation > hour and is_granted('ROLE_ADMIN') == false %}
-												<div class="d-none">{{hour}}</div>
-											{% elseif dates.dateData in indispos %}
-												<div class="col-6 offset-3 input cursor-forbidden" style="text-decoration: line-through; padding: 3px 6px; border-color: rgb(118, 118, 118), rgb(195, 195, 195);">{{hour}}</div>
-											{% elseif rdv in reservations %}
-												{% if is_granted('ROLE_ADMIN') %}
-													<div id="{{coiffeur.id}}_{{rdv}}" class="p-2 bg-primary rounded text-white border font-weight-normal adminReservation">{{hour}}
-														<div id="user_request" class='d-flex flex-column bg-white text-grey text-break font-weight-bold'></div>
-														<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation">Suppr</div>
-													</div>
-												{% else %}
-													<div class="bg-danger rounded text-white border font-weight-normal cursor-forbidden mt-2" style="padding:3px 4px;">{{hour}}</div>
-												{% endif %}
-											{% else %}
-												{% if is_granted('ROLE_ADMIN') %}
-													<div id="{{rdv}}" class="hoverBgBlue btn-dark rounded font-weight-bold border-white text-white p-2 m-1 adminCreateReservation">{{hour}}
-														<div class="d-none adminFormCreateDisplay row position-relative flex-column">
-															<input class="col-lg-10 offset-lg-1 m-1 p-2 animated border" placeholder="Nom" type="text" name="name"/>
-															<input
-															class="col-lg-10 offset-lg-1 m-1 p-2 animated border" placeholder="Prenom" type="text" name="firstName"/>
-															{# <input type="col-lg-10 offset-lg-1 m-1 p-2 animated border" name="hour" value="{{hour}}" class="col-6 offset-3 hoverBgBlue"/> 
-															<input type="submit" name="valide" value="Reserver" class="col-6 offset-3 hoverBgBlue"/>
-														</div>
-													</div>
-												{% else %}
-													<input type="submit" name="valide" value="{{hour}}" class="col-12 m-1 hoverBgBlue"/>
-												{% endif %}
-											{% endif %}
-										</div>
-									</form>
-								{% endfor %}
-								{% if is_granted('ROLE_ADMIN')%}
-									{% if dates.dateData in indispos %}
-										<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-primary p-2 rounded text-white border font-weight-normal cursor adminDisponibleCoiffeur">Dispo</div>
-									{% else %}
-										<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-danger p-2 rounded text-white border font-weight-normal cursor adminIndisponibleCoiffeur">Indispo</div>
-									{% endif %}
-								{% endif %}
-							</div>
-						{% endif %}
-						{% if continue %}
-							{% set continue = false %}
-						{% endif %}
-					{% endfor %}
-				</div>
-			</div> #}

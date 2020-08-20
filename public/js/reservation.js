@@ -119,7 +119,9 @@ $(function () {
     $('body').on('click', '.adminReservation', function () {
         var dataUrl = this.id;
         var divRequest = $(this).find("#user_request");
+        var divSuppr = $(this).find(".adminDeleteReservation");
         $(this).removeClass('col-6').removeClass('offset-3').removeClass('adminReservation').addClass('adminReservationOpen').addClass('col-12');
+        divSuppr.removeClass('d-none').addClass('d-block');
         $.ajax({
             type: 'GET',
             url: '/index.php/admin/reservation/user/' + dataUrl,
@@ -139,7 +141,9 @@ $(function () {
 $(function () {
     $('body').on('click', '.adminReservationOpen', function () {
         var divRequest = $(this).find("#user_request");
+        var divSuppr = $(this).find(".adminDeleteReservation");
         $(this).removeClass('adminReservationOpen').removeClass('col-12').addClass('col-6').addClass('offset-3').addClass('adminReservation');
+        divSuppr.removeClass('d-block').addClass('d-none');
         $(divRequest).html('');
     });
 });
@@ -189,7 +193,7 @@ $(function () {
         event.preventDefault();
         var formAdminReser = $(this).find(".adminFormCreateDisplay");
         console.log(formAdminReser);
-        $(this).removeClass("adminCreateReservation");
+        $(this).removeClass("adminCreateReservation").addClass('col-12');
         $(formAdminReser).removeClass("d-none");
     });
 });
