@@ -29,7 +29,7 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 url: '/index.php/admin/reservation/delete/one/'+dateId,
-                timeout: 3000,
+                timeout: 5000,
                 success: function (data) {
                     location.reload();
                 },
@@ -51,7 +51,7 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 url: '/index.php/coiffeur/indispo/'+dateId,
-                timeout: 3000,
+                timeout: 5000,
                 success: function (data) {
                     location.reload();
                 },
@@ -73,7 +73,7 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 url: '/index.php/coiffeur/dispo/'+dateId,
-                timeout: 3000,
+                timeout: 5000,
                 success: function (data) {
                     location.reload();
                 },
@@ -99,7 +99,7 @@ $(function () {
         $.ajax({
             type: 'GET',
             url: '/index.php/Reservation-Show/' + coiffeurId,
-            timeout: 3000,
+            timeout: 15000,
             success: function (data) {
                 $(divRequest).html(data.html);
                 $(titre).html("Choisir la date de réservation");
@@ -125,7 +125,7 @@ $(function () {
         $.ajax({
             type: 'GET',
             url: '/index.php/admin/reservation/user/' + dataUrl,
-            timeout: 3000,
+            timeout: 5000,
             success: function (data) {
                 console.log(data);
                 console.log(divRequest);
