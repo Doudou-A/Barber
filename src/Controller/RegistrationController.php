@@ -29,17 +29,7 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user = $userManager->addUser($user);
-            // $user->setDateCreated(new \DateTime());
-            // $token = random_bytes(15);
-            // $token = bin2hex($token);
-            // $user->setToken($token);
-            // $user->setNumberChange(0);
-
-            // $hash = $encoder->encodePassword($user, $user->getPassword());
-            // $user->setPassword($hash);
-
             $commonManager->persist($user);
-            // $manager->flush();
 
             return $this->redirectToRoute('app_login');
         }
