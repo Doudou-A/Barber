@@ -23,7 +23,7 @@ class CoiffeurCreateController extends AbstractController
         if(!$coiffeur){
             $coiffeur = new Coiffeur;
         }
-
+        
         $form = $this->createForm(CoiffeurType::class, $coiffeur);
         $form->handleRequest($request);
 

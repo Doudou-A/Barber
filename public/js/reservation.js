@@ -114,6 +114,33 @@ $(function () {
     });
 });
 
+//request reservation Dashboard
+$(function () {
+    $('#ajax-loading').hide();
+    $('body').on('click', '.coiffeurReservationAdmin', function () {
+        $('#loading-bg').show();
+        $('#ajax-loading').show();
+        var coiffeurId = this.id;
+        var divRequest = "#coiffeur_request";
+        var titre = "#titreReservation";
+        $.ajax({
+            type: 'GET',
+            url: '/index.php/Admin/Reservation-Show/' + coiffeurId,
+            timeout: 15000,
+            success: function (data) {
+                $(divRequest).html(data.html);
+                $(titre).html("Choisir la date de réservation");
+                $('#ajax-loading').hide();
+                $('#loading-bg').hide();
+                $('html,body').animate({ scrollTop: $("#coiffeur_request").offset().top - 150 }, 'slow');
+            },
+            error: function () {
+                alert('La requête n\'a pas abouti');
+            }
+        });
+    });
+});
+
 // AdminReservation
 $(function () {
     $('body').on('click', '.adminReservation', function () {

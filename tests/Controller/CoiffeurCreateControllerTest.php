@@ -5,7 +5,7 @@ namespace App\tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class CoiffeurCreateControllerTest extends WebTestCase
+class CoiffeurCreateControllerTest extends WebTestCase 
 {
     public function testCoiffeurCreate()
     {
@@ -20,13 +20,14 @@ class CoiffeurCreateControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
         $this->assertEquals(1, $crawler->filter('h1:contains("Ajouter un Coiffeur")')->count());
 
-        $file = new UploadedFile(__DIR__.'/../../public/img/138.png', '138.jpg');
-        $snap = new UploadedFile(__DIR__.'/../../public/img/barber.png', 'barber.jpg');
+        // $file = new UploadedFile(__DIR__.'/../../public/img/138.png', '138.jpg');
+        // $snap = new UploadedFile(__DIR__.'/../../public/img/barber.png', 'barber.jpg');
         
         $form = $crawler->selectButton('Ajouter')->form();
 
-        $form['coiffeur[file]'] = $snap;
-        $form['coiffeur[snap]'] = $snap;
+        $form['coiffeur[file]']->setValue(__DIR__.'/../../public/img/138.png');
+        $form['coiffeur[snap]']->setValue(__DIR__.'/../../public/img/138.png');
+        // $form['coiffeur[snap]'] = $snap;
         $form['coiffeur[username]'] = 'username';
         $form['coiffeur[facebook]'] = 'www.facebook.fr';
         $form['coiffeur[insta]'] = 'www.insta.fr';

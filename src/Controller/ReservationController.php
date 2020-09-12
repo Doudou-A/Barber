@@ -32,6 +32,7 @@ class ReservationController extends AbstractController
         return $this->render('reservation/index.html.twig', [
             'aCoiffeur' => $aCoiffeur,
             'dateRdv' => $dateRdv,
+            'ajaxRequest' => 'coiffeurReservation',
             // 'now' => $now,
         ]);
     }

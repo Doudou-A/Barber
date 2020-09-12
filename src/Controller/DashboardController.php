@@ -38,6 +38,7 @@ class DashboardController extends AbstractController
         return $this->render('dashboard/index.html.twig', [
             'aCoiffeur' => $aCoiffeur,
             'aDate' => $aDate,
+            'ajaxRequest' => 'coiffeurReservationAdmin',
         ]);
     }
 }
