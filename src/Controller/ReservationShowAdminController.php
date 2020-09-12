@@ -31,7 +31,7 @@ class ReservationShowAdminController extends AbstractController
         $timeReservation->add(new DateInterval('PT' . $hours_to_add . 'H'));
         $timeReservation = $timeReservation->format('H:i');
 
-        $reservations = $reservationManager->getReservations($coiffeur);
+        $reservations = $reservationManager->getReservations($coiffeur, $today);
 
         $aDate = $reservationManager->getADate();
         

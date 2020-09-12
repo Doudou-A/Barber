@@ -104,13 +104,14 @@ class ReservationManager
         return $aDate;
     }
 
-    public function getReservations($coiffeur)
+    public function getReservations($coiffeur, $today)
     {
         $reservationCoiffeur = $this->repo->findByCoiffeur($coiffeur->getId());
         $reservations = [];
         foreach ($reservationCoiffeur as $reservationTaked) {
             $dateRDV = $reservationTaked->getDateRDV();
             $dayRDV = $dateRDV->format('Y-m-d');
+            if($dayRDV < $today) continue;
             $hourRDV = $dateRDV->format('H:i');
             $reservations[] = "$dayRDV $hourRDV";
         }
