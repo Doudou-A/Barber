@@ -28,7 +28,7 @@ class ReservationCreateAdminController extends AbstractController
         $mail = random_bytes(5);
         $user->setEmail(bin2hex($mail));
         $user->setPassword("password");
-        $user->setName($form['name']);
+        $user->setName('name');
         $user->setFirstName($form['firstName']);
         $user->setNumber(0000000000);
         
