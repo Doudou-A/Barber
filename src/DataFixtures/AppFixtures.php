@@ -22,8 +22,6 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $faker = Factory::create();
-
         $user = new User();
         $user->setUsername('admin')
             ->setEmail('admin@gmail.com')

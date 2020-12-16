@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d9791a5-bf41-4243-babf-86da8483be4d" name="Default Changelist" comment="prod" />
+    <list default="true" id="3d9791a5-bf41-4243-babf-86da8483be4d" name="Default Changelist" comment="prod">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +139,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="redshift&#10;postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -143,6 +149,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -155,7 +162,7 @@
       <updated>1608056498013</updated>
       <workItem from="1608056499079" duration="3863000" />
       <workItem from="1608102647399" duration="2080000" />
-      <workItem from="1608119076988" duration="9780000" />
+      <workItem from="1608119076988" duration="10660000" />
     </task>
     <task id="LOCAL-00001" summary="prod">
       <created>1608056748811</created>
@@ -210,11 +217,19 @@
     <option name="LAST_COMMIT_MESSAGE" value="prod" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="613" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608154720108">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="613" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608154720108" />
     <state x="1855" y="-65" width="817" height="806" key="CommitChangelistDialog2" timestamp="1608121205402">
       <screen x="1440" y="-65" width="1920" height="1055" />
     </state>
     <state x="1855" y="-65" key="CommitChangelistDialog2/0.25.1440.806/1440.-65.1920.1055@1440.-65.1920.1055" timestamp="1608121205402" />
     <state x="311" y="25" width="817" height="806" key="CommitChangelistDialog2/0.25.1440.806@0.25.1440.806" timestamp="1608058114569" />
+    <state x="229" y="86" key="SettingsEditor" timestamp="1608154559499">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608154559499" />
     <state x="320" y="165" key="Vcs.Push.Dialog.v2" timestamp="1608058116622">
       <screen x="0" y="25" width="1440" height="806" />
     </state>
