@@ -2,33 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d9791a5-bf41-4243-babf-86da8483be4d" name="Default Changelist" comment="prod">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Barber.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Barber.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200726065516.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200726161021.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200726163140.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200728185600.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114422.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114631.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114713.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114941.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200730115541.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801180322.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801192546.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801192622.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801193411.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801200710.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801201225.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801201332.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200801201542.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200808071308.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200808072720.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200808080001.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200808090443.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200809141859.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200809142434.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20200812050630.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201216204135.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +131,10 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lhk1nNAczn81yAteI8fu743K1W" />
@@ -179,7 +164,7 @@
       <updated>1608056498013</updated>
       <workItem from="1608056499079" duration="3863000" />
       <workItem from="1608102647399" duration="2080000" />
-      <workItem from="1608119076988" duration="7986000" />
+      <workItem from="1608119076988" duration="9113000" />
     </task>
     <task id="LOCAL-00001" summary="prod">
       <created>1608056748811</created>
