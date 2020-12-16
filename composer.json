@@ -98,10 +98,4 @@
             "require": "4.4.*"
         }
     },
-
-    "scripts": {
-        "compile": [
-            "php bin/console doctrine:migrations:migrate"
-        ]
-    }
 }
