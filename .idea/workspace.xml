@@ -4,7 +4,31 @@
     <list default="true" id="3d9791a5-bf41-4243-babf-86da8483be4d" name="Default Changelist" comment="prod">
       <change beforePath="$PROJECT_DIR$/.idea/Barber.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Barber.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200726065516.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200726161021.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200726163140.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200728185600.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114422.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114631.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114713.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200730114941.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200730115541.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801180322.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801192546.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801192622.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801193411.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801200710.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801201225.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801201332.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200801201542.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200808071308.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200808072720.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200808080001.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200808090443.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200809141859.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200809142434.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20200812050630.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201216204135.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +179,7 @@
       <updated>1608056498013</updated>
       <workItem from="1608056499079" duration="3863000" />
       <workItem from="1608102647399" duration="2080000" />
-      <workItem from="1608119076988" duration="7345000" />
+      <workItem from="1608119076988" duration="7986000" />
     </task>
     <task id="LOCAL-00001" summary="prod">
       <created>1608056748811</created>
@@ -228,14 +252,15 @@
       <screen x="0" y="25" width="1440" height="806" />
     </state>
     <state x="521" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.806@0.25.1440.806" timestamp="1608059066643" />
-    <state x="421" y="176" width="597" height="548" key="find.popup" timestamp="1608151228278">
+    <state x="421" y="176" width="597" height="548" key="find.popup" timestamp="1608151693814">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="176" width="597" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608151228278" />
+    <state x="421" y="176" width="597" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608151693814" />
     <state x="421" y="183" width="597" height="490" key="find.popup/0.25.1440.806@0.25.1440.806" timestamp="1608057884924" />
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1608122699048">
-      <screen x="1440" y="-65" width="1920" height="1055" />
+    <state x="469" y="200" width="670" height="577" key="search.everywhere.popup" timestamp="1608151554910">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="469" y="200" width="670" height="577" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608151554910" />
     <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.25.1440.806/1440.-65.1920.1055@1440.-65.1920.1055" timestamp="1608122699048" />
   </component>
 </project>
