@@ -99,11 +99,5 @@
             "allow-contrib": false,
             "require": "4.4.*"
         }
-    },
-    "scripts": {
-        "compile": [
-            "chmod -R 777 src/DataFixtures",
-            "chmod -R 777 public"
-        ]
     }
 }
