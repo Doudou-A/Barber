@@ -102,7 +102,7 @@
     },
     "scripts": {
         "compile": [
-            "chmod -R 777 App\\DataFixtures\\/",
+            "chmod -R 777 src/DataFixtures",
             "chmod -R 777 public"
         ]
     }
