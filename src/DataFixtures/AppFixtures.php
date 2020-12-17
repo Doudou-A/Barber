@@ -69,16 +69,6 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
 
-        for($i = 0; $i < 4; $i++){
-            $coiffeur = new Coiffeur();
-            $coiffeur->setUsername($faker->userName)
-                ->setFile($faker->image(__DIR__.'/../public/img/barber.png', 'barber.jpg', 300, 300, "barber"))
-                ->setSnap($faker->image(__DIR__.'/../public/img/barber.png', 'barber.jpg', 300, 300, "barber"))
-                ->setFacebook($faker->url)
-                ->setInsta($faker->url);
-
-            $manager->persist($coiffeur);
-        }
         $manager->flush();
     }
 }
