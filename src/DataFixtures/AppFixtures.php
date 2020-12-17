@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\User;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -23,25 +25,28 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $user = new User();
-        $user->setUsername('admin')
-            ->setEmail('admin@gmail.com')
+        $user->setEmail('admin@gmail.com')
             ->setPassword($this->encoder->encodePassword($user, 'password'))
             ->setRoles(['ROLE_ADMIN'])
             ->setName('admin')
             ->setFirstName('admin')
-            ->setDateCreated(date())
-            ->setNumber(1);
+            ->setDateCreated(new DateTime())
+            ->setNumber(1)
+            ->setToken(null)
+            ->setNumberChange(null);
 
         $manager->persist($user);
 
-        $user->setUsername('user')
-            ->setEmail('user@gmail.com')
+        $user = new User();
+        $user->setEmail('user@gmail.com')
             ->setPassword($this->encoder->encodePassword($user, 'password'))
             ->setRoles(['ROLE_USER'])
             ->setName('user')
             ->setFirstName('user')
-            ->setDateCreated(date())
-            ->setNumber(2);
+            ->setDateCreated(new DateTime())
+            ->setNumber(2)
+            ->setToken(null)
+            ->setNumberChange(null);
 
         $manager->persist($user);
 
