@@ -205,7 +205,7 @@ class User implements UserInterface
         return $this->number;
     }
 
-    public function setNumber(int $number): self
+    public function setNumber(string $number): self
     {
         $this->number = $number;
 
