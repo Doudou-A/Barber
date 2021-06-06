@@ -25,8 +25,12 @@ class ReservationController extends AbstractController
         $dateRdv = [];
         foreach($reservations as $reservation){
             $coiffeur = $reservation->getCoiffeur()->getUsername();
+            $id = $reservation->getId();
             $reservation = $reservation->getDateRDV();
-            if($now < $reservation) $dateRdv[$coiffeur] = $reservation->format('d/m/Y H:i');
+            if($now < $reservation){
+                $dateRdv[$coiffeur][] = $reservation->format('d/m/Y H:i');
+                $dateRdv[$coiffeur]["id"] = $id;
+            }
         }
 
         return $this->render('reservation/index.html.twig', [

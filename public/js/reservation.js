@@ -224,3 +224,21 @@ $(function () {
         $(formAdminReser).removeClass("d-none");
     });
 });
+
+//Admin Delete client reservation
+$(function () {
+    $('body').on('click', '.deleteRdv', function () {
+        event.preventDefault();
+        $.ajax({
+            type: 'DELETE',
+            url: '/index.php/reservation/delete/' + this.id,
+            success: function (data) {
+                alert("Vous avez annulé votre rendez-vous");
+                window.location.reload(false);
+            },
+            error: function () {
+                alert('La requête n\'a pas abouti'   );
+            }
+        });
+    });
+});
