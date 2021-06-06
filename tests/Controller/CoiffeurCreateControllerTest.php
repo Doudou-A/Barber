@@ -14,20 +14,19 @@ class CoiffeurCreateControllerTest extends WebTestCase
             'PHP_AUTH_PW'   => 'password',
         ]);
 
-        $crawler = $client->request('GET', '/admin/coiffeur');
+        $crawler = $client->request('POST', '/admin/coiffeur');
 
         $this->assertSame(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($client->getResponse()->isSuccessful());
         $this->assertEquals(1, $crawler->filter('h1:contains("Ajouter un Coiffeur")')->count());
 
-        // $file = new UploadedFile(__DIR__.'/../../public/img/138.png', '138.jpg');
-        // $snap = new UploadedFile(__DIR__.'/../../public/img/barber.png', 'barber.jpg');
+        $file = new UploadedFile(__DIR__.'/../../public/img/138.png', '138.jpg');
+        $snap = new UploadedFile(__DIR__.'/../../public/img/barber.png', 'barber.jpg');
         
         $form = $crawler->selectButton('Ajouter')->form();
 
-        $form['coiffeur[file]']->setValue(__DIR__.'/../../public/img/138.png');
-        $form['coiffeur[snap]']->setValue(__DIR__.'/../../public/img/138.png');
-        // $form['coiffeur[snap]'] = $snap;
+        $form['coiffeur[file]'] = $file;
+        $form['coiffeur[snap]'] = $snap;
         $form['coiffeur[username]'] = 'username';
         $form['coiffeur[facebook]'] = 'www.facebook.fr';
         $form['coiffeur[insta]'] = 'www.insta.fr';

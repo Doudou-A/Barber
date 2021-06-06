@@ -46,6 +46,20 @@ class ReservationRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findReservationTokkenDay($coiffeurId, $date)
+    {
+        return $this->createQueryBuilder('r')
+            ->where('r.coiffeur = :coiffeurId')
+            ->andWhere('r.dateRDV > :dateFirst')
+            ->andWhere('r.dateRDV < :dateLast')
+            ->setParameter('coiffeurId', $coiffeurId)
+            ->setParameter('dateFirst', "$date 01:00:00")
+            ->setParameter('dateLast', "$date 23:00:00")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     
     /*
     public function findOneBySomeField($value): ?Reservation
