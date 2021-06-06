@@ -28,7 +28,7 @@ $(function () {
             var dateId = this.id;
             $.ajax({
                 type: 'POST',
-                url: '/index.php/admin/reservation/delete/one/'+dateId,
+                url: '/index.php/admin/reservation/delete/one/' + dateId,
                 timeout: 5000,
                 success: function (data) {
                     location.reload();
@@ -50,7 +50,7 @@ $(function () {
             var dateId = this.id;
             $.ajax({
                 type: 'POST',
-                url: '/index.php/coiffeur/indispo/'+dateId,
+                url: '/index.php/coiffeur/indispo/' + dateId,
                 timeout: 5000,
                 success: function (data) {
                     location.reload();
@@ -72,7 +72,7 @@ $(function () {
             var dateId = this.id;
             $.ajax({
                 type: 'POST',
-                url: '/index.php/coiffeur/dispo/'+dateId,
+                url: '/index.php/coiffeur/dispo/' + dateId,
                 timeout: 5000,
                 success: function (data) {
                     location.reload();
@@ -205,7 +205,7 @@ $(function () {
 });
 $(function () {
     $('body').on('click', '.dayPhoneRdvDisappear', function () {
-        var divDayPhone = "#dayPhone_"+this.id;
+        var divDayPhone = "#dayPhone_" + this.id;
         var divHourPhone = $(divDayPhone).find(".hourPhoneRdv");
         console.log(divDayPhone);
         $(divDayPhone).removeClass('col-10').removeClass('offset-1').addClass('col-2').addClass('dayPhoneRdv');
@@ -222,5 +222,31 @@ $(function () {
         console.log(formAdminReser);
         $(this).removeClass("adminCreateReservation").addClass('col-12');
         $(formAdminReser).removeClass("d-none");
+    });
+});
+
+// Btn calendar 
+$(function () {
+    $('body').on('click', '.calendarBtn', function () {
+        $('#loading-bg').show();
+        $('#ajax-loading').show();
+        var dataUrl = this.id;
+        var divRequest = $("#coiffeur_request");
+        $.ajax({
+            type: 'GET',
+            url: '/index.php/admin/Calendar-Show/' + dataUrl,
+            timeout: 5000,
+            success: function (data) {
+                console.log(data);
+                console.log(divRequest);
+                $(divRequest).html(data.html);
+                $('#ajax-loading').hide();
+                $('#loading-bg').hide();
+                $('html,body').animate({ scrollTop: $("#coiffeur_request").offset().top - 150 }, 'slow');
+            },
+            error: function () {
+                alert('La requête n\'a pas abouti' + url);
+            }
+        });
     });
 });

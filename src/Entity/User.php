@@ -10,7 +10,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity("email", message="Un compte possède déjà cet adresse email")
+ * @ORM\Table(name="users")
+ * @UniqueEntity("email", message="Un compte possède déjà cet adresse emai")
  */
 class User implements UserInterface
 {
@@ -204,7 +205,7 @@ class User implements UserInterface
         return $this->number;
     }
 
-    public function setNumber(int $number): self
+    public function setNumber(string $number): self
     {
         $this->number = $number;
 
