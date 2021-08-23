@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="161320cb-909e-42c8-8591-f0bc522ad276" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +166,8 @@
       <updated>1622993561375</updated>
       <workItem from="1622993562496" duration="3888000" />
       <workItem from="1623002875515" duration="1310000" />
-      <workItem from="1623006003733" duration="623000" />
+      <workItem from="1623006003733" duration="1055000" />
+      <workItem from="1629731793699" duration="1255000" />
     </task>
     <servers />
   </component>
@@ -188,10 +187,10 @@
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.1440.801@0.25.1440.801" timestamp="1622994440699" />
-    <state x="421" y="207" width="711" height="490" key="find.popup" timestamp="1623003718395">
-      <screen x="0" y="25" width="1440" height="800" />
+    <state x="421" y="205" width="711" height="490" key="find.popup" timestamp="1629732234607">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="711" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1623003482717" />
+    <state x="421" y="205" width="711" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1629732234607" />
     <state x="421" y="207" width="711" height="490" key="find.popup/0.25.1440.800@0.25.1440.800" timestamp="1623003718395" />
   </component>
 </project>
