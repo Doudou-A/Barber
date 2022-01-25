@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="161320cb-909e-42c8-8591-f0bc522ad276" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/ReservationManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ReservationManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reservation/reservationShow.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/reservationShow.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +169,7 @@
       <workItem from="1623002875515" duration="1310000" />
       <workItem from="1623006003733" duration="1055000" />
       <workItem from="1629731793699" duration="1802000" />
-      <workItem from="1643102304222" duration="1979000" />
+      <workItem from="1643102304222" duration="2313000" />
     </task>
     <servers />
   </component>
