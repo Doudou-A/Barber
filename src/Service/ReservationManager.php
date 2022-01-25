@@ -97,7 +97,7 @@ class ReservationManager
                 $aHour = [];
                 $hour->setTime(11, 00);
                 $time = $hour->format('H:i');
-                $aHour["$dateRequest $time"] = $time;
+                $aHour["$dateRequest $time"] = substr($dateFr, 0, 3);
                 for ($j = 1; $j <= 11; $j++) {
                     $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
                     $time = $hour->format('H:i');
