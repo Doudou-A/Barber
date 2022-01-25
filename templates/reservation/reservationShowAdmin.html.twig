@@ -1,0 +1,66 @@
+{% set continue = false %}
+<div class="col-lg-10 col-sm-12 offset-lg-1 bg-fonce">
+	<div class="d-flex justify-content-between">
+		<div class="col-2 d-flex align-items-center"><img src="{{ asset('img/icons8-chevron-gauche-96.png') }}" alt="" id="left" class="cursor"/></div>
+		<div class="col-6 offset-1 text-white text-center font-weight-bold border-bottom mb-2">Planning
+			<br>
+		<div id="right" class="col-2 offset-1 d-flex align-items-center mh-auto text-center cursor"><img src="{{ asset('img/icons8-chevron-droit-96.png') }}" alt="" weight="100" height="auto"/></div>
+	</div>
+	<div
+		class="row">
+		{# <div class="col-1 d-flex align-items-center"><img src="{{ asset('img/icons8-chevron-gauche-96.png') }}" alt="" id="left" class="cursor"/></div> #}
+		<div id="block" class="col-lg-10 offset-lg-1 col-sm-12 d-flex horizontal-scrollable bg-fonce font-weight-bold text-white p-2">
+			{% for dates in aDate %}
+{#				{% if "dim." in dates.dateFr or "lun." in dates.dateFr %}#}
+{#					{% set continue = true %}#}
+{#				{% endif %}#}
+{#				{% if not continue %}#}
+					<div class="col-lg-3 col-sm-4 d-flex flex-column h-100 text-center">
+						<div>
+							{{dates.dateFr}}
+						</div>
+						{% for rdv, hour in dates.hour %}
+							<form action="/index.php/reservation/create/admin" enctype="multipart/form-data" class="formReservation" method="POST">
+								<div class="row col-12 p-0 mt-1 mb-1 mx-0 justify-content-center">
+									<div style="display: none;">
+										<input class="col-lg-12 p-2 animated border" value='{{coiffeur.id}}' type="number" name="coiffeur" required="required"/>
+									</div>
+									<div style="display: none;">
+										<input class="col-lg-12 p-2 animated border" value="{{rdv}}" type="text" name="date"/>
+									</div>
+									{% if dates.dateData in indispos %}
+										<div class="col-8 offset-2 input cursor-forbidden" style="text-decoration: line-through; padding: 3px 6px; border-color: rgb(118, 118, 118), rgb(195, 195, 195);">{{hour}}</div>
+									{% elseif rdv in reservations %}
+										<div id="{{coiffeur.id}}_{{rdv}}" class="col-8 offset-2 p-1 m-0 bg-primary rounded text-white border font-weight-normal adminReservation">{{hour}}
+											<div id="user_request" class='d-flex flex-column'></div>
+											<div id="{{coiffeur.id}}_{{rdv}}" class="bg-danger rounded text-white border font-weight-normal cursor adminDeleteReservation d-none">Suppr</div>
+										</div>
+									{% else %}
+										<div id="{{rdv}}" class="col-8 offset-2 p-1 m-0 hoverBgBlue btn font-weight-bold border-white text-white adminCreateReservation">{{hour}}
+											<div class="d-none adminFormCreateDisplay row flex-column">
+												{# <input class="m-1 p-2 animated border" placeholder="Nom" type="text" name="name"/> #}
+												<input
+												class="m-1 p-2 animated border" placeholder="Prenom" type="text" name="firstName"/>
+												{# <input type="col-lg-10 offset-lg-1 m-1 p-2 animated border" name="hour" value="{{hour}}" class="col-6 offset-3 hoverBgBlue"/> #}
+												<input type="submit" name="valide" value="Reserver" class="col-8 offset-2 hoverBgBlue"/>
+											</div>
+										</div>
+									{% endif %}
+								</div>
+							</form>
+						{% endfor %}
+						{% if dates.dateData in indispos %}
+							<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-primary m-2 p-2 rounded text-white border font-weight-normal cursor adminDisponibleCoiffeur">Disponible</div>
+						{% else %}
+							<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-danger m-2 p-2 rounded text-white border font-weight-normal cursor adminIndisponibleCoiffeur">Indisponible</div>
+						{% endif %}
+					</div>
+{#				{% endif %}#}
+{#				{% if continue %}#}
+{#					{% set continue = false %}#}
+{#				{% endif %}#}
+			{% endfor %}
+		</div>
+		{# <div id="right" class="col-1 d-flex align-items-center mh-auto text-center cursor"><img src="{{ asset('img/icons8-chevron-droit-96.png') }}" alt="" weight="100" height="auto"/></div> #}
+	</div>
+</div>
