@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="161320cb-909e-42c8-8591-f0bc522ad276" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="161320cb-909e-42c8-8591-f0bc522ad276" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +166,7 @@
       <workItem from="1623002875515" duration="1310000" />
       <workItem from="1623006003733" duration="1055000" />
       <workItem from="1629731793699" duration="1802000" />
-      <workItem from="1643102304222" duration="4086000" />
+      <workItem from="1643102304222" duration="4355000" />
     </task>
     <servers />
   </component>
@@ -176,9 +174,9 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="205" width="699" height="518" key="find.popup" timestamp="1643107393913">
+    <state x="421" y="205" width="699" height="518" key="find.popup" timestamp="1643107643884">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="699" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1643107393913" />
+    <state x="421" y="205" width="699" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1643107643884" />
   </component>
 </project>

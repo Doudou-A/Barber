@@ -15,7 +15,7 @@
 {#				{% if "dim." in dates.dateFr or "lun." in dates.dateFr %}#}
 {#					{% set continue = true %}#}
 {#				{% endif %}#}
-{#				{% if not continue %}#}
+				{% if not continue %}
 					<div class="col-lg-3 col-sm-4 d-flex flex-column h-100 text-center">
 						<div>
 							{{dates.dateFr}}
@@ -50,7 +50,7 @@
 							{% endfor %}
 						{% endif %}
 					</div>
-{#				{% endif %}#}
+				{% endif %}
 {#				{% if continue %}#}
 {#					{% set continue = false %}#}
 {#				{% endif %}#}
