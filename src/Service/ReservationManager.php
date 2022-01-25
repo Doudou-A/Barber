@@ -101,7 +101,7 @@ class ReservationManager
                 for ($j = 1; $j <= 11; $j++) {
                     $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
                     $time = $hour->format('H:i');
-                    if (in_array($time, $dej)) continue;
+//                    if (in_array($time, $dej)) continue;
                     $aHour["$dateRequest $time"] = $time;
                 }
             }
