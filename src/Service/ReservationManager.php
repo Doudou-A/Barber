@@ -82,7 +82,7 @@ class ReservationManager
 
             $dateFr = strftime("%a %d %B", strtotime($date));
 
-            if (substr($dateFr, 0, 3) != "Dim") {
+            if (substr($dateFr, 0, 3) != "dim") {
                 $aHour = [];
                 $hour->setTime(9, 30);
                 $time = $hour->format('H:i');
