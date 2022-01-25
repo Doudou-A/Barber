@@ -21,7 +21,11 @@
 							{{dates.dateFr}}
 						</div>
 						{% if  today == dates.dateData  %}
-
+							<div class="text-wrap mt-5">
+								<div> Veuillez téléphoner au </div>
+								<div class="text-success"> 06 22 39 13 20 </div>
+								<div> pour réserver aujourd'hui </div>
+							</div>
 							{% set continue = true %}
 						{% endif %}
 						{% if not continue %}
