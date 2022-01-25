@@ -41,14 +41,14 @@ class ReservationManager
     {
         for ($i = 1; $i <= 30; $i++) {
             if ($i == 1) {
-                $dejDate = new DateTime();
-                $dejDate1 = $dejDate->setTime(13, 00);
-                $dejDate1 = $dejDate1->format('H:i');
-                $dejDate2 = $dejDate->setTime(13, 30);
-                $dejDate2 = $dejDate2->format('H:i');
-                $dej = [];
-                $dej[] = $dejDate1;
-                $dej[] = $dejDate2;
+//                $dejDate = new DateTime();
+//                $dejDate1 = $dejDate->setTime(13, 00);
+//                $dejDate1 = $dejDate1->format('H:i');
+//                $dejDate2 = $dejDate->setTime(13, 30);
+//                $dejDate2 = $dejDate2->format('H:i');
+//                $dej = [];
+//                $dej[] = $dejDate1;
+//                $dej[] = $dejDate2;
 
                 $aDate = [];
                 $date = date('l d F');
@@ -66,7 +66,7 @@ class ReservationManager
                 for ($j = 1; $j <= 18; $j++) {
                     $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
                     $time = $hour->format('H:i');
-                    if (in_array($time, $dej)) continue;
+//                    if (in_array($time, $dej)) continue;
                     $aHour["$dateRequest $time"] = $time;
                 }
 
@@ -87,10 +87,10 @@ class ReservationManager
                 $hour->setTime(9, 30);
                 $time = $hour->format('H:i');
                 $aHour["$dateRequest $time"] = $time;
-                for ($j = 1; $j <= 18; $j++) {
+                for ($j = 1; $j <= 19; $j++) {
                     $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
                     $time = $hour->format('H:i');
-                    if (in_array($time, $dej)) continue;
+//                    if (in_array($time, $dej)) continue;
                     $aHour["$dateRequest $time"] = $time;
                 }
             } else {
