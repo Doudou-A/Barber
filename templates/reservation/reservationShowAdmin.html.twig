@@ -12,10 +12,10 @@
 		{# <div class="col-1 d-flex align-items-center"><img src="{{ asset('img/icons8-chevron-gauche-96.png') }}" alt="" id="left" class="cursor"/></div> #}
 		<div id="block" class="col-lg-10 offset-lg-1 col-sm-12 d-flex horizontal-scrollable bg-fonce font-weight-bold text-white p-2">
 			{% for dates in aDate %}
-				{% if "dim." in dates.dateFr or "lun." in dates.dateFr %}
-					{% set continue = true %}
-				{% endif %}
-				{% if not continue %}
+{#				{% if "dim." in dates.dateFr or "lun." in dates.dateFr %}#}
+{#					{% set continue = true %}#}
+{#				{% endif %}#}
+{#				{% if not continue %}#}
 					<div class="col-lg-3 col-sm-4 d-flex flex-column h-100 text-center">
 						<div>
 							{{dates.dateFr}}
@@ -56,10 +56,10 @@
 							<div id="{{coiffeur.id}}_{{dates.dateData}}" class="bg-danger m-2 p-2 rounded text-white border font-weight-normal cursor adminIndisponibleCoiffeur">Indisponible</div>
 						{% endif %}
 					</div>
-				{% endif %}
-				{% if continue %}
-					{% set continue = false %}
-				{% endif %}
+{#				{% endif %}#}
+{#				{% if continue %}#}
+{#					{% set continue = false %}#}
+{#				{% endif %}#}
 			{% endfor %}
 		</div>
 		{# <div id="right" class="col-1 d-flex align-items-center mh-auto text-center cursor"><img src="{{ asset('img/icons8-chevron-droit-96.png') }}" alt="" weight="100" height="auto"/></div> #}
