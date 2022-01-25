@@ -60,7 +60,7 @@ class ReservationManager
                 $hour = new Datetime();
                 $minutes_to_add = 30;
                 $aHour = [];
-                $hour->setTime(10, 00);
+                $hour->setTime(9, 30);
                 $time = $hour->format('H:i');
                 $aHour["$dateRequest $time"] = $time;
                 for ($j = 1; $j <= 18; $j++) {
@@ -82,17 +82,29 @@ class ReservationManager
 
             $dateFr = strftime("%a %d %B", strtotime($date));
 
-            $aHour = [];
-            $hour->setTime(10, 00);
-            $time = $hour->format('H:i');
-            $aHour["$dateRequest $time"] = $time;
-            for ($j = 1; $j <= 18; $j++) {
-                $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+            if (substr($dateFr, 0, 3) != "Dim") {
+                $aHour = [];
+                $hour->setTime(9, 30);
                 $time = $hour->format('H:i');
-                if (in_array($time, $dej)) continue;
                 $aHour["$dateRequest $time"] = $time;
+                for ($j = 1; $j <= 18; $j++) {
+                    $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                    $time = $hour->format('H:i');
+                    if (in_array($time, $dej)) continue;
+                    $aHour["$dateRequest $time"] = $time;
+                }
+            } else {
+                $aHour = [];
+                $hour->setTime(11, 00);
+                $time = $hour->format('H:i');
+                $aHour["$dateRequest $time"] = $time;
+                for ($j = 1; $j <= 11; $j++) {
+                    $hour->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                    $time = $hour->format('H:i');
+                    if (in_array($time, $dej)) continue;
+                    $aHour["$dateRequest $time"] = $time;
+                }
             }
-
             $aDateHour = [];
 
             $aDateHour['dateFr'] = $dateFr;
@@ -111,7 +123,7 @@ class ReservationManager
         foreach ($reservationCoiffeur as $reservationTaked) {
             $dateRDV = $reservationTaked->getDateRDV();
             $dayRDV = $dateRDV->format('Y-m-d');
-            if($dayRDV < $today) continue;
+            if ($dayRDV < $today) continue;
             $hourRDV = $dateRDV->format('H:i');
             $reservations[] = "$dayRDV $hourRDV";
         }
