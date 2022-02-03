@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="161320cb-909e-42c8-8591-f0bc522ad276" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +174,8 @@
       <workItem from="1623002875515" duration="1310000" />
       <workItem from="1623006003733" duration="1055000" />
       <workItem from="1629731793699" duration="1802000" />
-      <workItem from="1643102304222" duration="5193000" />
+      <workItem from="1643102304222" duration="5724000" />
+      <workItem from="1643901565202" duration="65000" />
     </task>
     <servers />
   </component>
@@ -181,9 +183,21 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="205" width="699" height="518" key="find.popup" timestamp="1643107643884">
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1643128158455">
+      <screen x="0" y="25" width="1440" height="807" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.25.1440.807@0.25.1440.807" timestamp="1643128158455" />
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1643128158456">
+      <screen x="0" y="25" width="1440" height="807" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.25.1440.807@0.25.1440.807" timestamp="1643128158456" />
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1643128158456">
+      <screen x="0" y="25" width="1440" height="807" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.1440.807@0.25.1440.807" timestamp="1643128158456" />
+    <state x="421" y="205" width="699" height="518" key="find.popup" timestamp="1643901616958">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="699" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1643107643884" />
+    <state x="421" y="205" width="699" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1643901616958" />
   </component>
 </project>
